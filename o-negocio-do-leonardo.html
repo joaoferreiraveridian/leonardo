@@ -1,0 +1,1374 @@
+<title>O Negócio do Leonardo</title>
+<meta name="description" content="Dez ideias de negócio jurídico B2B para um advogado só, operado por IA, com modelo, produtos, entregas, nichos e operação. E a recomendação do que fazer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: continuação do dossiê nº 01, mesma identidade. Agora a página responde uma pergunta só: o que o Leonardo deve fazer.
+   Ordem: a resposta → as ideias → os caminhos → a assessoria em detalhe → a IA → onde vender → clientes → simulador → 90 dias. */
+:root{
+  --paper:#f3f4f2; --surface:#ffffff; --sunk:#eaece9;
+  --ink:#14171c; --ink-2:#454b54; --ink-3:#737a84; --line:#d6d9dc; --line-2:#e5e7e9;
+  --ruby:#9b1b30; --ruby-ink:#86172a; --ruby-soft:#f4e5e8;
+  --s1:#9b1b30; --s2:#2f6aa8; --s3:#c48a1c; --on-s:#ffffff;
+  --ok:#1b7446; --ok-soft:#e1f1e8; --warn:#8f5d00; --warn-soft:#f7edd8; --no:#b42318; --no-soft:#fae6e3;
+  --f-display:"Libre Caslon Display","Libre Caslon Text",Georgia,"Times New Roman",serif;
+  --f-body:"Geist","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --f-mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r:6px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e1013; --surface:#15191e; --sunk:#1b2026;
+    --ink:#eceef1; --ink-2:#b3b9c1; --ink-3:#838a94; --line:#2a2f37; --line-2:#21262d;
+    --ruby:#e07383; --ruby-ink:#ee95a1; --ruby-soft:#371c22;
+    --s1:#cf5a6b; --s2:#5487c4; --s3:#bb8a26; --on-s:#0e1013;
+    --ok:#52c48d; --ok-soft:#14352a; --warn:#e2a83f; --warn-soft:#382b12; --no:#f2776d; --no-soft:#3b1b19;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e1013; --surface:#15191e; --sunk:#1b2026;
+  --ink:#eceef1; --ink-2:#b3b9c1; --ink-3:#838a94; --line:#2a2f37; --line-2:#21262d;
+  --ruby:#e07383; --ruby-ink:#ee95a1; --ruby-soft:#371c22;
+  --s1:#cf5a6b; --s2:#5487c4; --s3:#bb8a26; --on-s:#0e1013;
+  --ok:#52c48d; --ok-soft:#14352a; --warn:#e2a83f; --warn-soft:#382b12; --no:#f2776d; --no-soft:#3b1b19;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;margin:0}
+table{font-size:inherit;color:inherit}
+button{font-family:inherit}
+a{color:var(--ruby-ink);text-decoration-thickness:1px;text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--ruby);outline-offset:2px;border-radius:3px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+
+/* ---------- estrutura ---------- */
+.shell{display:grid;grid-template-columns:268px minmax(0,1fr);max-width:1380px;margin:0 auto}
+.toc{position:sticky;top:env(safe-area-inset-top,0px);height:calc(100vh - env(safe-area-inset-top,0px));overflow-y:auto;padding:36px 22px 32px 28px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:28px}
+.brand{display:flex;align-items:center;gap:12px}
+.mono{display:grid;place-items:center;width:40px;height:40px;border:1.5px solid var(--ink);border-radius:50%;font-family:var(--f-display);font-size:17px;letter-spacing:.02em}
+.brand b{display:block;font-weight:600;font-size:15px;line-height:1.2}
+.brand span{display:block;font-family:var(--f-mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase}
+.toc nav ol{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.toc nav a{display:grid;grid-template-columns:34px 1fr;gap:4px;padding:7px 10px;border-radius:5px;color:var(--ink-2);text-decoration:none;font-size:14px;line-height:1.35}
+.toc nav a span{font-family:var(--f-mono);font-size:12px;color:var(--ink-3);padding-top:1px}
+.toc nav a:hover{background:var(--sunk);color:var(--ink)}
+.toc nav a.on{background:var(--surface);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.toc nav a.on span{color:var(--ruby)}
+.legend{display:grid;gap:7px;font-size:13px;color:var(--ink-2)}
+.toc-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px;font-family:var(--f-mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em}
+.theme-btn{white-space:nowrap;font:500 12px var(--f-body);color:var(--ink-2);background:transparent;border:1px solid var(--line);border-radius:999px;padding:5px 11px;cursor:pointer}
+.theme-btn:hover{color:var(--ink);border-color:var(--ink-3)}
+.mnav{display:none;position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--paper);border-bottom:1px solid var(--line);overflow-x:auto;gap:6px;padding:10px 16px;scrollbar-width:none}
+.mnav::-webkit-scrollbar{display:none}
+.mnav a{flex:none;font-size:13px;color:var(--ink-2);text-decoration:none;padding:6px 11px;border:1px solid var(--line);border-radius:999px;background:var(--surface);white-space:nowrap}
+.mnav a.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+main{min-width:0;padding-inline:clamp(16px,5vw,72px);padding-block:0 120px}
+section{max-width:1040px;padding-block:80px 8px}
+section + section{border-top:1px solid var(--line)}
+.stack{display:grid;gap:22px}
+.stack-lg{display:grid;gap:44px}
+.stack > *,.stack-lg > *,.grid-2 > *,.grid-3 > *{min-width:0}
+
+/* ---------- tipografia ---------- */
+h1,h2{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0;letter-spacing:-.005em}
+h1{font-size:clamp(40px,6.2vw,76px);line-height:1.02}
+h2{font-size:clamp(32px,4.2vw,48px);line-height:1.06}
+h3{font-size:19px;line-height:1.3;font-weight:600;margin:0;text-wrap:balance}
+h4{font-size:15px;line-height:1.35;font-weight:600;margin:0}
+p{margin:0;max-width:70ch}
+.eyebrow{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.lede{font-size:clamp(17px,1.6vw,20px);line-height:1.55;color:var(--ink-2);max-width:64ch}
+.muted{color:var(--ink-2)}
+.small{font-size:14px;line-height:1.55}
+.tiny{font-size:12.5px;line-height:1.5;color:var(--ink-3)}
+.sec-head{display:grid;gap:14px;margin-bottom:36px}
+.sec-num{font-family:var(--f-mono);font-size:13px;color:var(--ruby);letter-spacing:.06em}
+ul.clean{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+ul.ticks{margin:0;padding-left:1.1em;display:grid;gap:7px}
+ul.ticks li::marker{color:var(--ruby)}
+ul.nos{margin:0;padding-left:1.1em;display:grid;gap:7px}
+ul.nos li::marker{content:"✕  ";color:var(--no);font-size:12px}
+strong{font-weight:600}
+.tab{font-variant-numeric:tabular-nums}
+
+/* ---------- selos ---------- */
+.seal{display:inline-block;width:.62em;height:.62em;border-radius:50%;margin-left:.32em;vertical-align:.06em;flex:none}
+.seal.f{background:var(--ok)}
+.seal.e{background:linear-gradient(90deg,var(--warn) 50%,transparent 50%);box-shadow:inset 0 0 0 1.5px var(--warn)}
+.seal.l{box-shadow:inset 0 0 0 1.5px var(--no)}
+.legend .seal{margin:0 8px 0 0}
+
+/* ---------- hero ---------- */
+.hero{padding-block:72px 64px;max-width:1040px;display:grid;gap:30px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14px;color:var(--ink-2)}
+.hero-meta span{display:inline-flex;gap:8px;align-items:baseline}
+.hero-meta i{font-style:normal;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0;border-top:1px solid var(--ink)}
+.kpi{padding:18px 20px 4px 0;display:grid;gap:6px;align-content:start}
+.kpi + .kpi{padding-left:20px;border-left:1px solid var(--line)}
+.kpi-n{font-family:var(--f-display);font-size:clamp(34px,3.6vw,46px);line-height:1}
+.kpi-l{font-size:14px;line-height:1.45;color:var(--ink-2)}
+@media (max-width:720px){.kpi + .kpi{border-left:0;padding-left:0;border-top:1px solid var(--line)}}
+
+/* ---------- blocos ---------- */
+.leitura{background:var(--sunk);border-radius:var(--r);padding:18px 22px;display:grid;gap:6px}
+.leitura > b{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ruby);font-weight:500}
+.leitura p{max-width:none}
+.thesis{font-family:var(--f-display);font-size:clamp(26px,3vw,36px);line-height:1.2;max-width:32ch;text-wrap:balance}
+.thesis em{font-style:normal;color:var(--ruby)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:860px){.grid-2,.grid-3{grid-template-columns:minmax(0,1fr)}}
+.find{display:grid;gap:6px;padding:18px 0;border-top:1px solid var(--line)}
+.find h3{font-size:17px}
+.find p{font-size:15px;color:var(--ink-2)}
+
+/* ficha do negócio */
+.biz{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);border:1px solid var(--ink);border-radius:var(--r);background:var(--surface);overflow:hidden}
+.biz > div{padding:26px;display:grid;gap:14px;align-content:start}
+.biz > div + div{border-left:1px solid var(--line)}
+.biz .pitch{font-family:var(--f-display);font-size:28px;line-height:1.15}
+.biz dl{margin:0;display:grid;grid-template-columns:120px 1fr;gap:10px 16px;font-size:14.5px}
+.biz dt{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);padding-top:3px}
+.biz dd{margin:0}
+@media (max-width:860px){.biz{grid-template-columns:minmax(0,1fr)}.biz > div + div{border-left:0;border-top:1px solid var(--line)}.biz dl{grid-template-columns:minmax(0,1fr);gap:2px 0}.biz dd{margin-bottom:10px}}
+
+/* escada */
+.ladder{display:grid;gap:10px}
+.rung{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;align-items:start;padding:20px 22px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.rung .pos{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.rung .pos b{display:block;font-family:var(--f-body);font-size:16px;letter-spacing:0;text-transform:none;color:var(--ink);font-weight:600;margin-top:2px}
+.rung .pos small{display:block;text-transform:none;letter-spacing:0;font-family:var(--f-body);font-size:12.5px;margin-top:4px}
+.rung.k{border-color:var(--ruby);box-shadow:inset 3px 0 0 var(--ruby)}
+.prods{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.prods.p4{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:640px){.prods.p4{grid-template-columns:minmax(0,1fr)}}
+.prod{border:1px solid var(--line-2);border-radius:5px;padding:12px 14px;display:grid;gap:4px;align-content:start;background:var(--paper)}
+.prod b{font-size:14.5px;line-height:1.3}
+.prod span{font-size:13px;color:var(--ink-2);line-height:1.4}
+.prod .pr{font-family:var(--f-mono);font-size:12.5px;color:var(--ink)}
+.prod .dl{font-family:var(--f-mono);font-size:11px;color:var(--ruby-ink);letter-spacing:.04em}
+@media (max-width:720px){.rung{grid-template-columns:minmax(0,1fr);gap:10px}}
+
+/* tabelas */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+table.t{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.5}
+table.t th{font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);background:var(--sunk);white-space:nowrap}
+table.t td{padding:12px 14px;border-bottom:1px solid var(--line-2);vertical-align:top}
+table.t tr:last-child td{border-bottom:0}
+table.t td.n,table.t th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+table.t td.strong{font-weight:600}
+table.t tr.total td{font-weight:600;background:var(--sunk)}
+table.t .ck{background:var(--ruby-soft)}
+table.t th.ck{color:var(--ruby-ink)}
+
+/* chips, tabs, status */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 13px var(--f-body);padding:6px 13px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);cursor:pointer}
+.chip:hover{border-color:var(--ink-3);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:thin}
+.tabs button{font:500 14px var(--f-body);color:var(--ink-3);background:none;border:0;border-bottom:2px solid transparent;padding:10px 14px;cursor:pointer;white-space:nowrap;margin-bottom:-1px}
+.tabs button:hover{color:var(--ink)}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ruby)}
+.st{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:2px 10px 2px 8px;border-radius:999px;white-space:nowrap;line-height:1.6}
+.st.ok{background:var(--ok-soft);color:var(--ok)} .st.ok::before{content:"✓"}
+.st.no{background:var(--no-soft);color:var(--no)} .st.no::before{content:"✕"}
+.st.warn{background:var(--warn-soft);color:var(--warn)} .st.warn::before{content:"!"}
+.tag{display:inline-block;font-family:var(--f-mono);font-size:11px;letter-spacing:.05em;padding:2px 8px;border-radius:4px;background:var(--sunk);color:var(--ink-2);white-space:nowrap}
+.tag.r{background:var(--ruby-soft);color:var(--ruby-ink)}
+.tag.b{background:transparent;box-shadow:inset 0 0 0 1px var(--s2);color:var(--ink)}
+.inum{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 5px;border-radius:999px;background:var(--sunk);font:600 11.5px var(--f-body);color:var(--ink);margin:0 3px 3px 0}
+.inum.k{background:var(--ruby);color:var(--on-s)}
+
+/* barras */
+.bars{display:grid;gap:9px}
+.bar-row{display:grid;grid-template-columns:minmax(96px,200px) minmax(0,1fr) 64px;gap:12px;align-items:center;font-size:14px;padding:2px 0;border-radius:4px}
+.bar-row:hover{background:var(--sunk)}
+.bar-row .lab{color:var(--ink-2);line-height:1.3}
+.bar-track{height:16px;border-left:1px solid var(--ink-3);display:flex;align-items:center}
+.bar{display:block;height:12px;width:calc(var(--v) * 1%);min-width:2px;background:var(--bar,var(--s1));border-radius:0 4px 4px 0}
+.bar-row .val{font-variant-numeric:tabular-nums;text-align:right;font-weight:600}
+@media (max-width:560px){.bar-row{grid-template-columns:minmax(0,1fr) 56px}.bar-row .lab{grid-column:1/-1}}
+.key{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--ink-2)}
+.key span{display:inline-flex;align-items:center;gap:7px}
+.key i{display:inline-block;width:11px;height:11px;border-radius:50%}
+
+/* matriz */
+.mx-wrap{position:relative;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:10px 12px 4px}
+.mx-scroll{overflow-x:auto}
+.mx-wrap svg{display:block;width:100%;min-width:620px;height:auto;overflow:visible}
+.mx-grid{stroke:var(--line);stroke-width:1;stroke-dasharray:3 4}
+.mx-axis{stroke:var(--ink-3);stroke-width:1}
+.mx-q{fill:var(--ink-3);font:500 10.5px var(--f-mono);letter-spacing:.06em}
+.mx-al{fill:var(--ink-2);font:500 12px var(--f-body)}
+.mx-dot{cursor:pointer;outline:none}
+.mx-dot circle.d{stroke:var(--surface);stroke-width:2}
+.mx-dot .hit{fill:transparent}
+.mx-dot text.n{fill:var(--on-s);font:600 11px var(--f-body);pointer-events:none}
+.mx-dot text.l{fill:var(--ink);font:500 12.5px var(--f-body);pointer-events:none}
+.mx-dot .ring{fill:none;stroke:var(--ink);stroke-width:1.5}
+.mx-dot:hover circle.d,.mx-dot:focus-visible circle.d{stroke:var(--ink)}
+.mx-dot.sel text.l{font-weight:700;text-decoration:underline}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--paper);font-size:12.5px;line-height:1.45;padding:8px 11px;border-radius:5px;max-width:250px;opacity:0;transition:opacity .12s;z-index:5}
+.tip.on{opacity:1}
+.tip b{display:block;font-size:13px}
+
+/* ideias: lista + ficha */
+.ideas{display:grid;grid-template-columns:290px minmax(0,1fr);gap:20px;align-items:start}
+.idea-list{display:grid;gap:6px;position:sticky;top:20px}
+.idea-btn{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;align-items:center;text-align:left;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);cursor:pointer;color:var(--ink-2);width:100%}
+.idea-btn:hover{border-color:var(--ink-3);color:var(--ink)}
+.idea-btn[aria-selected="true"]{border-color:var(--ink);color:var(--ink);box-shadow:inset 3px 0 0 var(--ruby)}
+.idea-btn .no{font-family:var(--f-display);font-size:21px;line-height:1;color:var(--ruby)}
+.idea-btn .nm{font-size:14px;line-height:1.3;font-weight:600}
+.idea-btn .nm small{display:block;font-weight:400;color:var(--ink-3);font-size:12px;margin-top:1px}
+.idea-btn .sc{font-family:var(--f-mono);font-size:12px;color:var(--ink-2)}
+.idea-btn[hidden]{display:none}
+.idea-panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:26px;display:grid;gap:20px;min-width:0}
+.ip-top{display:grid;gap:10px}
+.ip-top h3{font-family:var(--f-display);font-weight:400;font-size:clamp(26px,2.8vw,34px);line-height:1.1}
+.ip-top .tags{display:flex;gap:6px;flex-wrap:wrap}
+.ip-top p{color:var(--ink-2);font-size:16px}
+.mk{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink)}
+.mk div{padding:12px 14px 2px 0;display:grid;gap:3px;align-content:start}
+.mk div + div{padding-left:14px;border-left:1px solid var(--line)}
+.mk span{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.mk b{font-size:15px;line-height:1.3;font-weight:600}
+@media (max-width:640px){.mk{grid-template-columns:repeat(2,minmax(0,1fr))}.mk div:nth-child(3){border-left:0;padding-left:0}.mk div:nth-child(n+3){border-top:1px solid var(--line-2)}}
+.ip-body{display:grid;gap:16px}
+.ip-body dl{margin:0;display:grid;grid-template-columns:150px 1fr;gap:12px 18px;font-size:15px}
+.ip-body dt{font-weight:600;font-size:14px}
+.ip-body dd{margin:0;color:var(--ink-2)}
+@media (max-width:640px){.ip-body dl{grid-template-columns:minmax(0,1fr);gap:2px}.ip-body dd{margin-bottom:10px}}
+.dgroups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.dgroup{border:1px solid var(--line-2);border-radius:5px;padding:14px 16px;display:grid;gap:8px;align-content:start;background:var(--paper)}
+.dgroup h4{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ruby-ink);font-weight:500}
+.dgroup ul{margin:0;padding-left:1.1em;display:grid;gap:5px;font-size:14px}
+@media (max-width:720px){.dgroups{grid-template-columns:minmax(0,1fr)}}
+.nl{display:grid;gap:0}
+.nl div{display:grid;grid-template-columns:220px 1fr;gap:16px;padding:10px 0;border-top:1px solid var(--line-2);font-size:14.5px}
+.nl div:first-child{border-top:0}
+.nl b{font-weight:600}
+.nl span{color:var(--ink-2)}
+@media (max-width:640px){.nl div{grid-template-columns:minmax(0,1fr);gap:2px}}
+@media (max-width:980px){.ideas{grid-template-columns:minmax(0,1fr)}.idea-list{position:static;grid-auto-flow:column;grid-auto-columns:minmax(230px,1fr);overflow-x:auto;padding-bottom:6px}}
+
+/* caminhos */
+.paths{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+.path{display:grid;gap:12px;align-content:start}
+.path.k{border-color:var(--ruby);box-shadow:inset 0 3px 0 var(--ruby)}
+.path h3{font-size:18px}
+.path .who{font-size:14px;color:var(--ink-2)}
+.path dl{margin:0;display:grid;grid-template-columns:78px 1fr;gap:6px 12px;font-size:13.5px}
+.path dt{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);padding-top:3px}
+.path dd{margin:0}
+.path .go{justify-self:start}
+
+/* relatório */
+.report{border:1px solid var(--ink);border-radius:var(--r);background:var(--surface);overflow:hidden}
+.report-h{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:16px 22px;border-bottom:1px solid var(--line);background:var(--sunk)}
+.report-h b{font-size:16px}
+.report-k{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.report-k div{padding:16px 22px;display:grid;gap:4px}
+.report-k div + div{border-left:1px solid var(--line)}
+.report-k b{font-family:var(--f-display);font-weight:400;font-size:32px;line-height:1}
+.report-k span{font-size:12.5px;color:var(--ink-2);line-height:1.4}
+.report-b{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;padding:20px 22px;border-top:1px solid var(--line)}
+.report-b h4{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-bottom:8px}
+.report-note{padding:16px 22px;border-top:1px solid var(--line);background:var(--paper);font-size:14.5px}
+@media (max-width:760px){.report-k{grid-template-columns:repeat(2,minmax(0,1fr))}.report-k div:nth-child(3){border-left:0}.report-k div:nth-child(n+3){border-top:1px solid var(--line)}.report-b{grid-template-columns:minmax(0,1fr)}}
+
+/* fluxo da IA */
+.flow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.flow > div{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 13px;position:relative;display:grid;gap:4px;align-content:start}
+.flow > div:not(:last-child)::after{content:"→";position:absolute;right:-11px;top:50%;transform:translateY(-50%);color:var(--ink-3);font-size:13px;z-index:1}
+.flow .who{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.flow b{font-size:14px;line-height:1.3}
+.flow span{font-size:12.5px;color:var(--ink-2);line-height:1.4}
+.flow .k{border-color:var(--ruby);box-shadow:inset 0 3px 0 var(--ruby)}
+.flow .k .who{color:var(--ruby-ink)}
+@media (max-width:900px){.flow{grid-template-columns:repeat(2,minmax(0,1fr))}.flow > div::after{display:none}}
+
+/* linha do tempo */
+.tl{display:grid;gap:0;border-left:1px solid var(--line);margin-left:6px}
+.tl > div{display:grid;grid-template-columns:130px minmax(0,1fr);gap:16px;padding:10px 0 10px 22px;position:relative}
+.tl > div::before{content:"";position:absolute;left:-5px;top:17px;width:9px;height:9px;border-radius:50%;background:var(--paper);box-shadow:inset 0 0 0 2px var(--ink-3)}
+.tl > div.k::before{box-shadow:inset 0 0 0 5px var(--ruby)}
+.tl time{font-family:var(--f-mono);font-size:12px;color:var(--ink-3);padding-top:3px}
+.tl p{font-size:14.5px}
+@media (max-width:560px){.tl > div{grid-template-columns:minmax(0,1fr);gap:2px}}
+
+/* pontos */
+.dots{display:inline-flex;gap:3px;vertical-align:middle}
+.dots i{width:8px;height:8px;border-radius:50%;box-shadow:inset 0 0 0 1.3px var(--ink-3)}
+.dots i.on{background:var(--ink);box-shadow:none}
+
+/* simulador */
+.sim{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:920px){.sim{grid-template-columns:minmax(0,1fr)}}
+.sim-in{display:grid;gap:16px}
+.sim-group{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:grid;gap:12px}
+.sim-group > h4{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.sim-group > h4 small{font-weight:400;color:var(--ink-3);font-size:12px}
+.frow{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,1fr));gap:10px;align-items:end}
+.frow.h{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.frow .nm{font-size:14px;line-height:1.3}
+.frow .nm small{display:block;color:var(--ink-3);font-size:12px}
+.fld{display:grid;gap:4px}
+.fld label{font-size:12px;color:var(--ink-3)}
+.in{width:100%;font:500 14px var(--f-body);font-variant-numeric:tabular-nums;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:5px;padding:7px 9px;min-width:0}
+.in:focus{border-color:var(--ruby);outline:none;box-shadow:0 0 0 3px var(--ruby-soft)}
+input[type=range]{width:100%;accent-color:var(--ruby)}
+@media (max-width:560px){.frow{grid-template-columns:repeat(3,minmax(0,1fr))}.frow .nm{grid-column:1/-1}.frow.h .nm{display:none}}
+.sim-out{position:sticky;top:calc(env(safe-area-inset-top,0px) + 20px);display:grid;gap:16px;background:var(--surface);border:1px solid var(--ink);border-radius:var(--r);padding:22px}
+@media (max-width:980px){.sim-out{top:calc(env(safe-area-inset-top,0px) + 64px)}}
+@media (max-width:920px){.sim-out{position:static}}
+.big{font-family:var(--f-display);font-size:clamp(40px,4.4vw,56px);line-height:1}
+.out-row{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:7px 0;border-bottom:1px solid var(--line-2)}
+.out-row:last-child{border-bottom:0}
+.out-row b{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+.out-row.k b{color:var(--ruby-ink)}
+.stackbar{display:flex;height:14px;gap:2px;border-radius:4px;overflow:hidden;background:var(--sunk)}
+.stackbar i{display:block;height:100%}
+.meter{height:10px;border-radius:999px;background:var(--sunk);overflow:hidden}
+.meter i{display:block;height:100%;border-radius:999px;background:var(--ok);transition:width .25s}
+.meter.warn i{background:var(--warn)} .meter.no i{background:var(--no)}
+.presets{display:grid;gap:8px}
+.presets .chips{gap:6px}
+.alerts{display:grid;gap:8px}
+.alert{font-size:13.5px;line-height:1.45;padding:9px 12px;border-radius:5px}
+.alert.no{background:var(--no-soft);color:var(--no)}
+.alert.ok{background:var(--ok-soft);color:var(--ok)}
+.alert.warn{background:var(--warn-soft);color:var(--warn)}
+
+/* fases e decisões */
+.phases{display:grid;gap:0;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);overflow:hidden}
+.phase{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;padding:22px 24px}
+.phase + .phase{border-top:1px solid var(--line)}
+.phase .when{display:grid;gap:4px;align-content:start}
+.phase .when b{font-family:var(--f-display);font-weight:400;font-size:24px;line-height:1.1}
+.phase .when span{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase}
+@media (max-width:720px){.phase{grid-template-columns:minmax(0,1fr);gap:10px}}
+.dec{display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;padding:18px 0;border-top:1px solid var(--line)}
+.dec .dn{font-family:var(--f-display);font-size:28px;line-height:1;color:var(--ruby)}
+.dec h4{font-size:16px;margin-bottom:4px}
+.dec p{font-size:14.5px;color:var(--ink-2)}
+.rec{font-size:13.5px;margin-top:6px}
+.rec b{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ruby);font-weight:500;margin-right:6px}
+.src details{border-top:1px solid var(--line);padding:12px 0}
+.src summary{cursor:pointer;font-weight:600;font-size:15px;display:flex;justify-content:space-between;gap:12px}
+.src summary span{font-family:var(--f-mono);font-size:12px;color:var(--ink-3);font-weight:400}
+.src ul{margin:12px 0 4px;padding-left:1.1em;display:grid;gap:5px;font-size:13.5px;word-break:break-word}
+.foot{max-width:1040px;padding-block:48px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink-3)}
+@media (max-width:980px){.shell{grid-template-columns:minmax(0,1fr)}.toc{display:none}.mnav{display:flex}section{padding-block:60px 8px}.hero{padding-block:44px 48px}}
+</style>
+
+<nav class="mnav" id="mnav" aria-label="Seções">
+  <a href="#resposta">Resposta</a><a href="#ideias">10 ideias</a><a href="#caminhos">Caminhos</a><a href="#assessoria">Assessoria</a><a href="#ia">IA</a><a href="#nichos">Onde vender</a><a href="#clientes">Clientes</a><a href="#simulador">Simulador</a><a href="#plano">90 dias</a>
+</nav>
+
+<div class="shell">
+<aside class="toc">
+  <div class="brand"><div class="mono" aria-hidden="true">LA</div><div><b>Lins Alves</b><span>Dossiê nº 02</span></div></div>
+  <nav aria-label="Sumário">
+    <ol id="toc">
+      <li><a href="#resposta"><span>§ 1</span>A resposta</a></li>
+      <li><a href="#ideias"><span>§ 2</span>As 10 ideias de negócio</a></li>
+      <li><a href="#caminhos"><span>§ 3</span>Os caminhos possíveis</a></li>
+      <li><a href="#assessoria"><span>§ 4</span>A assessoria, entrega por entrega</a></li>
+      <li><a href="#ia"><span>§ 5</span>Como a IA opera</a></li>
+      <li><a href="#nichos"><span>§ 6</span>Onde vender</a></li>
+      <li><a href="#clientes"><span>§ 7</span>De onde vêm os clientes</a></li>
+      <li><a href="#simulador"><span>§ 8</span>Monte o negócio</a></li>
+      <li><a href="#plano"><span>§ 9</span>Os primeiros 90 dias</a></li>
+    </ol>
+  </nav>
+  <div class="legend">
+    <div class="eyebrow">Selos</div>
+    <div><span class="seal f"></span>Dado com fonte</div>
+    <div><span class="seal e"></span>Estimativa ou proposta nossa</div>
+    <div><span class="seal l"></span>Falta confirmar</div>
+  </div>
+  <div class="toc-foot"><span>Data-base 03.10.2026</span><button class="theme-btn" id="themeBtn" type="button">Tema</button></div>
+</aside>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="eyebrow">Dossiê nº 02 · O que fazer</div>
+  <h1>O negócio do Leonardo, do produto à entrega.</h1>
+  <p class="lede">Dez ideias de negócio jurídico B2B que um advogado sozinho, com IA, consegue tocar. Para cada uma: o modelo, os produtos, as entregas, os nichos onde vende e o que a IA faz em cada etapa. No fim, a escolha do negócio e o que fazer nos próximos 90 dias.</p>
+  <div class="hero-meta">
+    <span><i>Para</i> Leonardo e João</span>
+    <span><i>Mercado</i> empresas de qualquer setor</span>
+    <span><i>A pesquisa</i> está no dossiê nº 01</span>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><div class="kpi-n">R$ 5.000</div><div class="kpi-l">por mês é o piso da assessoria empresarial na tabela nova da OAB-RJ. Toda assinatura começa aqui<span class="seal f" title="OAB-RJ, Tabela Indicativa, página atualizada em 03/07/2026"></span></div></div>
+    <div class="kpi"><div class="kpi-n">4 a 6</div><div class="kpi-l">assinaturas, mais 1 projeto por mês, fecham R$ 30 mil. Não são dezenas de clientes<span class="seal e" title="Cálculo nosso"></span></div></div>
+    <div class="kpi"><div class="kpi-n">27 dias</div><div class="kpi-l">até 30/10: prazo da empresa do Simples para decidir o regime da reforma e dos editais de transação da Receita<span class="seal f" title="Res. CGSN 194/2026; Editais RFB 9 e 10/2026"></span></div></div>
+    <div class="kpi"><div class="kpi-n">R$ 740</div><div class="kpi-l">por mês é o software da operação inteira. O limite é a hora do Leonardo, não a ferramenta<span class="seal e" title="Preços oficiais, total estimado"></span></div></div>
+  </div>
+</header>
+
+<!-- ================= §1 RESPOSTA ================= -->
+<section id="resposta">
+  <header class="sec-head">
+    <span class="sec-num">§ 1</span>
+    <h2>A resposta</h2>
+  </header>
+  <div class="stack-lg">
+    <p class="thesis">O Leonardo deve montar <em>o jurídico interno das empresas que estão crescendo</em>: uma assinatura mensal que faz o papel do departamento jurídico. Ela é vendida por meio de projetos de caixa com prazo e operada por IA, com ele aprovando cada entrega.</p>
+
+    <div class="biz">
+      <div>
+        <span class="eyebrow">O negócio em uma frase</span>
+        <p class="pitch">“O jurídico interno da sua empresa, sem precisar contratar um.”</p>
+        <p class="small muted">O posicionamento é um <strong>papel</strong>, não um setor. Serve para qualquer empresa. Os setores entram só como foco de marketing, para o Leonardo saber onde procurar (§ 6).</p>
+      </div>
+      <div>
+        <dl>
+          <dt>Cliente</dt><dd>Empresas de 10 a 200 pessoas, de qualquer setor, num momento de mudança: contratando, ganhando sócio, fechando contrato maior, abrindo unidade, enfrentando a reforma tributária.</dd>
+          <dt>Produto âncora</dt><dd><strong>Jurídico Externo por assinatura</strong>: R$ 5.000, R$ 7.000 ou R$ 9.500 por mês, com créditos, prazo de resposta e relatório de valor (§ 4).</dd>
+          <dt>Porta de entrada</dt><dd>Projetos de caixa com preço fechado: transação tributária, reforma tributária, sócios em ordem, holding. Pagam a aquisição em 7 a 30 dias.</dd>
+          <dt>Escala</dt><dd>Em 2027, uma Ltda separada vende treinamentos obrigatórios e produtos digitais com preço público. Não consome hora de advogado.</dd>
+          <dt>Canais</dt><dd>Contadores (sem comissão), outros advogados, palestras, indicação e conteúdo. A Altta é um canal entre seis.</dd>
+          <dt>Meta</dt><dd>4 a 6 assinaturas + 1 a 2 projetos por mês = R$ 30 mil, em 12 a 18 meses.<span class="seal e"></span></dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="stack">
+      <div class="eyebrow">O cardápio, em três camadas</div>
+      <div class="ladder">
+        <div class="rung">
+          <div class="pos">Agora · out–dez<b>Caixa</b><small class="muted">projetos com prazo de lei</small></div>
+          <div class="prods p4">
+            <div class="prod"><span class="dl">ATÉ 30/10 E 29/01</span><b>Transação tributária</b><span>Negociar a dívida com a PGFN e a Receita, com desconto de até 70% para ME/EPP.</span><span class="pr">R$ 4–8 mil + 10–20% da economia</span></div>
+            <div class="prod"><span class="dl">ATÉ 30/10 · DEPOIS MARÇO</span><b>Reforma tributária</b><span>Decisão de regime da empresa do Simples, diagnóstico e revisão dos contratos.</span><span class="pr">R$ 5–10 mil</span></div>
+            <div class="prod"><span class="dl">ATÉ 31/12</span><b>Holding express</b><span>Doar quotas pelo valor contábil antes da regra nova do ITCMD.</span><span class="pr">a partir de R$ 22 mil</span></div>
+            <div class="prod"><span class="dl">O ANO TODO</span><b>Sócios em Ordem</b><span>Acordo de sócios, vesting, entrada e saída de sócio.</span><span class="pr">R$ 8–15 mil</span></div>
+          </div>
+        </div>
+        <div class="rung k">
+          <div class="pos">Sempre<b>Recorrência</b><small class="muted">o que paga as contas</small></div>
+          <div class="prods p4">
+            <div class="prod"><b>Jurídico Externo · Essencial</b><span>6 créditos por mês, resposta em 2 dias úteis.</span><span class="pr">R$ 5.000/mês</span></div>
+            <div class="prod"><b>Jurídico Externo · Crescimento</b><span>12 créditos, 1 dia útil, reunião mensal, pré-contencioso.</span><span class="pr">R$ 7.000/mês</span></div>
+            <div class="prod"><b>Jurídico Externo · Completo</b><span>20 créditos, 12 h úteis, defesas administrativas.</span><span class="pr">R$ 9.500/mês</span></div>
+            <div class="prod"><b>Tributário contínuo</b><span>Para ME/EPP depois do projeto de reforma: regime, alíquotas, contratos.</span><span class="pr">a partir de R$ 1.500/mês</span></div>
+          </div>
+        </div>
+        <div class="rung">
+          <div class="pos">2027<b>Escala</b><small class="muted">pela Ltda, sem hora de advogado</small></div>
+          <div class="prods">
+            <div class="prod"><b>Treinamentos obrigatórios</b><span>Assédio (Lei 14.457) e saúde mental (NR-1), por funcionário por ano.</span><span class="pr">R$ 30–80 por pessoa/ano</span></div>
+            <div class="prod"><b>Monitor de marcas</b><span>Vigia a revista do INPI toda semana e avisa quem tentar copiar a marca.</span><span class="pr">R$ 29/mês por marca</span></div>
+            <div class="prod"><b>Contratos da empresa</b><span>Modelos revisados, gerados por questionário, com cofre de vencimentos.</span><span class="pr">R$ 59–149/mês</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="tiny">Preços são propostas nossas, sempre igual ou acima dos itens da tabela nova da OAB-RJ (assessoria empresarial R$ 5.000, acordo de sócios R$ 8.000, holding a partir de R$ 22.000, planejamento tributário R$ 8.000). Ainda falta confirmar a seccional do Leonardo e se a coluna “Sugestão” da tabela nova vale como mínimo ético.<span class="seal l"></span></p>
+    </div>
+
+    <div class="grid-2" style="gap:0 36px">
+      <div class="find"><h3>Por que este, e não outro</h3><p>É o único desenho que junta, ao mesmo tempo, caixa rápido (os projetos) e receita que se repete (a assinatura), sem depender de um nicho e sem precisar de dezenas de clientes.</p></div>
+      <div class="find"><h3>Respeita a OAB sem esforço</h3><p>Com o piso de R$ 5 mil, o caminho de “muitos planos baratos” é ilegal no escritório. Este caminho precisa de 4 a 6 bons clientes, e o produto barato fica na Ltda, onde preço público é permitido.</p></div>
+      <div class="find"><h3>A IA aparece para o cliente</h3><p>Ela não é discurso: é contrato revisado em 24 h, centenas de contratos lidos em um dia na revisão da reforma e um relatório mensal que mostra o que foi feito.</p></div>
+      <div class="find"><h3>O calendário ajuda</h3><p>Outubro a janeiro concentra prazos legais que vendem sozinhos: regime do Simples, transação, holding. É o melhor momento do ano para abrir o caixa.</p></div>
+    </div>
+
+    <div class="grid-2" style="gap:36px;align-items:start">
+      <div class="stack">
+        <h3>O calendário de caixa</h3>
+        <div class="tl">
+          <div class="k"><time>30/out/2026</time><p><strong>Simples decide o regime de 2027</strong> (IBS/CBS por fora ou não) e vencem os editais de transação da Receita.<span class="seal f" title="Res. CGSN 194/2026; Editais RFB 9 e 10/2026"></span></p></div>
+          <div><time>15/dez/2026</time><p>Sai a alíquota de referência da CBS.<span class="seal f"></span></p></div>
+          <div class="k"><time>31/dez/2026</time><p><strong>Última data para doar quotas pelo valor contábil</strong> antes da regra nova do ITCMD (LC 227/2026).<span class="seal f"></span></p></div>
+          <div><time>fim de dez/2026</time><p>Pode voltar a multa da NR-1 psicossocial, hoje suspensa pelo STF (ADPF 1316).<span class="seal e"></span></p></div>
+          <div class="k"><time>29/jan/2027</time><p><strong>Fecha o edital PGFN 6/2026</strong> de transação da dívida ativa.<span class="seal f"></span></p></div>
+          <div><time>2027</time><p>A CBS entra cheia e o PIS/Cofins acaba. Contratos antigos ficam desequilibrados.<span class="seal f"></span></p></div>
+          <div><time>mar/2027</time><p>Nova janela de opção do Simples, para o 2º semestre.<span class="seal f"></span></p></div>
+        </div>
+      </div>
+      <div class="stack">
+        <h3>A conta até R$ 30 mil</h3>
+        <div class="tbl-wrap"><table class="t">
+          <thead><tr><th>Quando</th><th>O que entra</th><th class="n">R$/mês</th></tr></thead>
+          <tbody>
+            <tr><td class="strong">Mês 3</td><td>1 assinatura Essencial + 1 projeto a cada 2 meses + 1 tributário contínuo</td><td class="n">~10 mil</td></tr>
+            <tr><td class="strong">Mês 6</td><td>1 Essencial + 1 Crescimento + 1 projeto por mês + 1 tributário contínuo</td><td class="n">~20 mil</td></tr>
+            <tr><td class="strong">Mês 12</td><td>1 Essencial + 2 Crescimento + 1 projeto por mês + 2 tributários + êxitos</td><td class="n">~30 mil</td></tr>
+          </tbody>
+        </table></div>
+        <p class="tiny">Valores médios. Entre outubro e dezembro, os projetos de janela (transação, regime, holding) podem fazer meses bem acima disso, mas não se repetem. Monte a sua versão no simulador (§ 8).<span class="seal e"></span></p>
+        <div class="leitura"><b>O que não fazer</b>
+          <ul class="nos small">
+            <li>Nichar o negócio inteiro num setor só.</li>
+            <li>Vender assessoria barata no escritório: é aviltamento de honorários.</li>
+            <li>Pagar comissão a contador ou à Altta, ou vender junto com eles.</li>
+            <li>Pegar contencioso de volume: prende a agenda por anos.</li>
+            <li>Construir plataforma antes de ter 5 clientes pagando.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= §2 IDEIAS ================= -->
+<section id="ideias">
+  <header class="sec-head">
+    <span class="sec-num">§ 2</span>
+    <h2>As 10 ideias de negócio</h2>
+    <p class="lede">Cada ideia funciona sozinha como negócio. Abra uma para ver o modelo, os produtos e as entregas, os nichos e o que a IA faz em cada etapa. As três marcadas com anel são o núcleo do negócio recomendado; transação e holding entram nele como projetos de janela, até janeiro.</p>
+  </header>
+  <div class="stack-lg">
+    <div class="stack" style="gap:12px">
+      <div class="chart-title" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline"><h4>Caixa rápido × receita que se repete</h4><span class="tiny">posição estimada por nós<span class="seal e"></span> · clique num ponto para abrir a ideia</span></div>
+      <div class="mx-wrap" id="mxWrap">
+        <div class="mx-scroll"><svg id="mx" viewBox="0 0 860 412" role="img" aria-label="Matriz das 10 ideias: horizontal, velocidade do caixa; vertical, recorrência"></svg></div>
+        <div class="tip" id="mxTip" role="status"></div>
+      </div>
+      <div class="key"><span><i style="background:var(--s1)"></i>Escritório (advocacia)</span><span><i style="background:var(--s2)"></i>Ltda (software e educação)</span><span><i style="background:transparent;box-shadow:0 0 0 1.5px var(--ink)"></i>Parte do negócio recomendado</span></div>
+    </div>
+
+    <div class="stack" style="gap:14px">
+      <div class="chips" id="ideaFilter" role="group" aria-label="Filtrar ideias">
+        <button class="chip" type="button" aria-pressed="true" data-f="all">Todas</button>
+        <button class="chip" type="button" aria-pressed="false" data-f="rec">Recorrentes</button>
+        <button class="chip" type="button" aria-pressed="false" data-f="caixa">Caixa</button>
+        <button class="chip" type="button" aria-pressed="false" data-f="escala">Escala (Ltda)</button>
+      </div>
+      <div class="ideas">
+        <div class="idea-list" id="ideaList" role="tablist" aria-label="Ideias de negócio" aria-orientation="vertical"></div>
+        <div class="idea-panel" id="ideaPanel" role="tabpanel" aria-live="polite"></div>
+      </div>
+      <p class="tiny">Nota de 0 a 10 para um negócio de uma pessoa só com IA. Pesos: caixa em 90 dias 20%, recorrência 25%, alavanca da IA 20%, risco ético e de execução 15% (invertido), concorrência 10% (invertida), encaixe com o canal 10%. Os pesos são nossos; as notas dos produtos de caixa partem do arquivo 10.<span class="seal e"></span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= §3 CAMINHOS ================= -->
+<section id="caminhos">
+  <header class="sec-head">
+    <span class="sec-num">§ 3</span>
+    <h2>Os caminhos possíveis</h2>
+    <p class="lede">As ideias se combinam. O caminho recomendado serve a quem gosta de empresarial em geral. Se o Leonardo tiver mais afinidade com outra área, há quatro alternativas que também chegam a R$ 30 mil. Escolha pelo que ele já sabe fazer e gosta de fazer.</p>
+  </header>
+  <div class="paths" id="paths"></div>
+</section>
+
+<!-- ================= §4 ASSESSORIA ================= -->
+<section id="assessoria">
+  <header class="sec-head">
+    <span class="sec-num">§ 4</span>
+    <h2>A assessoria, entrega por entrega</h2>
+    <p class="lede">O produto âncora em detalhe: o que o cliente compra, o que recebe no primeiro mês e todo mês, quanto custa cada pedido e o que a IA faz em cada entrega.</p>
+  </header>
+  <div class="stack-lg">
+    <div class="stack">
+      <h3>Os três planos</h3>
+      <div class="tbl-wrap"><table class="t">
+        <thead><tr><th></th><th>Essencial</th><th class="ck">Crescimento</th><th>Completo</th></tr></thead>
+        <tbody>
+          <tr><td class="strong">Para quem</td><td>10 a 30 pessoas, poucos contratos</td><td class="ck">30 a 100 pessoas, contrato toda semana</td><td>100+ pessoas, várias unidades ou muita fiscalização</td></tr>
+          <tr><td class="strong">Mensalidade</td><td class="tab">R$ 5.000</td><td class="ck tab"><strong>R$ 7.000</strong></td><td class="tab">R$ 9.500</td></tr>
+          <tr><td class="strong">Créditos por mês</td><td class="tab">6</td><td class="ck tab">12</td><td class="tab">20</td></tr>
+          <tr><td class="strong">Prazo de resposta</td><td>2 dias úteis</td><td class="ck">1 dia útil</td><td>12 h úteis</td></tr>
+          <tr><td class="strong">Reunião com os sócios</td><td>trimestral</td><td class="ck">mensal</td><td>quinzenal</td></tr>
+          <tr><td class="strong">Pré-contencioso</td><td>—</td><td class="ck">incluído</td><td>incluído</td></tr>
+          <tr><td class="strong">Defesas administrativas</td><td>—</td><td class="ck">—</td><td>Procon, autos de infração, notificações de órgãos</td></tr>
+          <tr><td class="strong">Processos acompanhados</td><td>até 3</td><td class="ck">até 10</td><td>todos</td></tr>
+          <tr><td class="strong">Implantação (mês 1)</td><td colspan="3">Diagnóstico de 40 pontos, cofre jurídico, 5 a 8 modelos, playbook de contratos. Cobrada como taxa no primeiro mês, ou incluída em contrato de 12 meses</td></tr>
+          <tr><td class="strong">Sempre incluído</td><td colspan="3">Calendário de vencimentos, boletim mensal do que mudou na lei, relatório de valor, canal direto no WhatsApp e no portal</td></tr>
+        </tbody>
+      </table></div>
+      <p class="tiny">A mensalidade nunca vai em anúncio: o Provimento 205/2021 proíbe preço na publicidade. Os planos aparecem só na proposta individual.<span class="seal f"></span> Contrato de 12 meses com aviso prévio de 60 dias e reajuste pelo IPCA.<span class="seal e"></span></p>
+    </div>
+
+    <div class="grid-2" style="gap:36px;align-items:start">
+      <div class="stack">
+        <h3>Quanto custa cada pedido</h3>
+        <div class="tbl-wrap"><table class="t">
+          <thead><tr><th>Pedido</th><th class="n">Créditos</th></tr></thead>
+          <tbody>
+            <tr><td>Dúvida por escrito, orientação rápida</td><td class="n">1</td></tr>
+            <tr><td>Reunião extra de 30 minutos</td><td class="n">1</td></tr>
+            <tr><td>Rodada de negociação com a outra parte</td><td class="n">1</td></tr>
+            <tr><td>Revisão de contrato de até 15 páginas</td><td class="n">2</td></tr>
+            <tr><td>Contrato novo a partir de modelo da empresa</td><td class="n">2</td></tr>
+            <tr><td>Notificação extrajudicial</td><td class="n">2</td></tr>
+            <tr><td>Contrato novo sob medida</td><td class="n">4</td></tr>
+            <tr><td>Política interna, regulamento, código de conduta</td><td class="n">4</td></tr>
+            <tr><td>Parecer curto, de até 5 páginas</td><td class="n">4</td></tr>
+          </tbody>
+        </table></div>
+        <p class="small muted">Créditos que sobram passam para o mês seguinte uma vez. Se faltar, vende-se um pacote extra por proposta. Os créditos acabam com o “é só uma perguntinha” e mostram ao cliente quanto ele usou. Nos EUA, a SuperLegal vende assim, de US$ 999 a 3.499 por mês.<span class="seal f"></span></p>
+      </div>
+      <div class="stack">
+        <h3>A jornada do cliente</h3>
+        <div class="tl">
+          <div><time>Dia 0</time><p>Reunião de 45 min. O Leonardo entende a empresa e o momento dela.</p></div>
+          <div><time>Dias 1 a 7</time><p>Diagnóstico de 40 pontos: a IA lê contrato social, contratos, certidões e processos; o Leonardo valida o mapa de riscos.</p></div>
+          <div class="k"><time>Dia 7</time><p><strong>Apresentação do mapa e proposta</strong>: diagnóstico pago, ou incluído se fechar a assinatura.</p></div>
+          <div><time>Mês 1</time><p>Implantação: cofre jurídico, modelos, playbook e 3 ganhos rápidos, como um contrato de cliente refeito e o acordo de sócios que faltava.</p></div>
+          <div><time>Mês 2 em diante</time><p>Rotina: pedidos pelo canal, entregas no prazo, calendário, boletim e relatório.</p></div>
+          <div><time>A cada trimestre</time><p>Revisão do mapa de riscos com os sócios. É aqui que nascem os projetos à parte.</p></div>
+          <div class="k"><time>Mês 12</time><p><strong>Plano jurídico do ano e renovação</strong>, com o histórico de valor na mesa.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stack">
+      <h3>Cada entrega, e o que a IA faz nela</h3>
+      <div class="tbl-wrap"><table class="t">
+        <thead><tr><th>Entrega</th><th>Quando</th><th>O que a IA faz</th><th>O que o Leonardo faz</th></tr></thead>
+        <tbody>
+          <tr><td class="strong">Diagnóstico de 40 pontos</td><td>Entrada</td><td>Lê os documentos, preenche o checklist, monta o mapa em semáforo</td><td>Valida riscos e prioridades, apresenta aos sócios</td></tr>
+          <tr><td class="strong">Cofre jurídico</td><td>Entrada</td><td>Organiza e classifica documentos, extrai datas de vencimento</td><td>Confere o que falta</td></tr>
+          <tr><td class="strong">Modelos e playbook</td><td>Entrada</td><td>Adapta a biblioteca do Leonardo aos dados e ao setor do cliente</td><td>Define o que a empresa aceita negociar</td></tr>
+          <tr><td class="strong">Revisão de contratos</td><td>Pedido</td><td>Compara com o playbook, marca riscos, sugere redação e resume em 5 linhas</td><td>Revisa e aprova; negocia os grandes</td></tr>
+          <tr><td class="strong">Consultas</td><td>Pedido</td><td>Tria, pesquisa lei e jurisprudência com link para cada fonte, rascunha a resposta</td><td>Responde com o próprio juízo</td></tr>
+          <tr><td class="strong">Calendário de vencimentos</td><td>Contínuo</td><td>Vigia contratos, alvarás, certidões, marcas e procurações; avisa com antecedência</td><td>Decide a ação</td></tr>
+          <tr><td class="strong">Boletim legal</td><td>Mensal</td><td>Lê o Diário Oficial e as mudanças de lei por setor, filtra o que afeta cada cliente</td><td>Escreve o “o que fazer”</td></tr>
+          <tr><td class="strong">Relatório de valor</td><td>Mensal</td><td>Conta demandas, prazos, contratos, valores e riscos evitados</td><td>3 linhas de análise</td></tr>
+          <tr><td class="strong">Revisão trimestral</td><td>Trimestral</td><td>Atualiza o mapa de riscos com o que mudou</td><td>Reunião com os sócios</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="stack">
+      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline"><h3>Como o cliente vê o mês: o relatório de valor</h3><span class="tiny">exemplo ilustrativo, empresa fictícia<span class="seal e"></span></span></div>
+      <div class="report" role="img" aria-label="Exemplo de relatório mensal de valor">
+        <div class="report-h"><div><span class="eyebrow">Relatório de valor · setembro</span><br><b>Distribuidora exemplo · 60 pessoas · plano Crescimento</b></div><span class="tiny">Lins Alves Sociedade Individual de Advocacia</span></div>
+        <div class="report-k">
+          <div><b>14</b><span>pedidos resolvidos no mês</span></div>
+          <div><b>7 h</b><span>prazo médio de resposta, dentro do 1 dia útil do plano</span></div>
+          <div><b>6</b><span>contratos revisados, somando R$ 1,9 milhão em valor</span></div>
+          <div><b>10/12</b><span>créditos usados; 2 passam para outubro</span></div>
+        </div>
+        <div class="report-b">
+          <div><h4>O que fizemos</h4><ul class="ticks small"><li>Contrato com novo fornecedor de frete: multa de rescisão reduzida de 50% para 10%</li><li>Notificação a cliente com 3 boletos vencidos: acordo em 9 dias</li><li>Política de home office aprovada</li></ul></div>
+          <div><h4>Riscos evitados</h4><ul class="ticks small"><li>Cláusula de exclusividade sem prazo no contrato de um representante</li><li>Procuração bancária vencendo em 12 dias, renovada</li></ul></div>
+          <div><h4>Próximos 30 dias</h4><ul class="ticks small"><li>Renovação do contrato de locação do galpão (vence em 45 dias)</li><li>Primeira janela de regime do Simples de 2027: revisar com o contador</li></ul></div>
+        </div>
+        <div class="report-note"><strong>Análise do advogado.</strong> O mês foi de contratos comerciais. A próxima frente é padronizar o contrato de representante antes da abertura da filial em Niterói.</div>
+      </div>
+      <p class="small muted">O relatório responde ao maior motivo de cancelamento de assinatura jurídica: “não vejo o que o advogado faz”. A IA monta tudo a partir do registro das demandas, e o Leonardo escreve só as três linhas finais.</p>
+    </div>
+
+    <div class="grid-2" style="gap:36px;align-items:start">
+      <div class="stack">
+        <h3>O que fica de fora</h3>
+        <ul class="ticks small">
+          <li><strong>Processo judicial</strong>: proposta à parte. Volume vai para advogado parceiro, com divisão de honorários (permitida entre advogados).</li>
+          <li><strong>Projetos grandes</strong>: holding, compra e venda de empresa, reestruturação, revisão da reforma.</li>
+          <li><strong>Êxito tributário</strong>: transação e recuperação, com contrato próprio.</li>
+          <li><strong>Pedidos acima dos créditos</strong>: pacote extra por proposta.</li>
+        </ul>
+      </div>
+      <div class="stack">
+        <h3>Capacidade e margem</h3>
+        <ul class="clean small">
+          <li><strong>5 a 14 h por cliente por mês</strong>, conforme o plano, já com a IA fazendo a primeira versão de tudo.<span class="seal e"></span></li>
+          <li><strong>8 a 12 clientes</strong> cabem em 64 h úteis por mês. A meta de R$ 30 mil pede 4 a 6, o que deixa folga para projetos e para vender.<span class="seal e"></span></li>
+          <li><strong>Margem de ~90%</strong> antes do pró-labore: software de R$ 740 mais ~R$ 20 por cliente, e Simples de 4,5% a 6,75% até R$ 30 mil por mês.<span class="seal e"></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= §5 IA ================= -->
+<section id="ia">
+  <header class="sec-head">
+    <span class="sec-num">§ 5</span>
+    <h2>Como a IA opera o negócio</h2>
+    <p class="lede">Um escritório de uma pessoa só funciona como uma linha de produção: a IA faz o primeiro trabalho de tudo, e o Leonardo é o único ponto de aprovação. É o mesmo desenho para qualquer uma das dez ideias.</p>
+  </header>
+  <div class="stack-lg">
+    <div class="flow" role="list" aria-label="Fluxo de uma demanda">
+      <div role="listitem"><span class="who">Cliente</span><b>Pedido</b><span>WhatsApp, e-mail ou portal</span></div>
+      <div role="listitem"><span class="who">IA · recepção</span><b>Triagem</b><span>Se identifica como IA, entende, pede o que falta, estima créditos</span></div>
+      <div role="listitem"><span class="who">IA · memória</span><b>Contexto</b><span>Documentos, modelos, playbook e histórico do cliente</span></div>
+      <div role="listitem"><span class="who">IA · redator e revisor</span><b>Primeira versão</b><span>Minuta, marcações e riscos, com link para cada fonte</span></div>
+      <div role="listitem" class="k"><span class="who">Leonardo</span><b>Aprova</b><span>Fila diária de 30 a 60 min. Nada sai sem ele</span></div>
+      <div role="listitem"><span class="who">IA · vigia e relator</span><b>Entrega e rotina</b><span>Envia, registra, vigia prazos, monta o relatório</span></div>
+    </div>
+
+    <div class="tbl-wrap"><table class="t">
+      <thead><tr><th>Agente</th><th>O que faz</th><th>Com quê</th><th>O que o Leonardo faz</th></tr></thead>
+      <tbody>
+        <tr><td class="strong">Recepção</td><td>Atende no WhatsApp e no portal, se apresenta como assistente virtual, classifica o pedido, coleta documentos, abre a demanda</td><td>API oficial do WhatsApp + Claude</td><td>Nada, até a fila</td></tr>
+        <tr><td class="strong">Memória</td><td>Guarda tudo de cada empresa, isolado por cliente: documentos, modelos, playbook, decisões anteriores</td><td>Supabase (região São Paulo)</td><td>Alimenta o playbook na implantação</td></tr>
+        <tr><td class="strong">Redator</td><td>Faz a primeira minuta a partir da biblioteca de modelos do Leonardo</td><td>Claude</td><td>Revisa</td></tr>
+        <tr><td class="strong">Revisor</td><td>Confere a minuta contra o playbook e abre cada citação na fonte: “sem link, não entra”</td><td>Claude + Jus IA</td><td>Aprova</td></tr>
+        <tr><td class="strong">Vigia</td><td>Prazos, vencimentos, processos, Diário Oficial, editais e mudanças de lei por setor</td><td>Escavador + rotinas automáticas</td><td>Decide o que vira alerta</td></tr>
+        <tr><td class="strong">Relator</td><td>Relatório de valor de cada cliente, todo mês</td><td>Supabase + Claude</td><td>3 linhas de análise</td></tr>
+        <tr><td class="strong">Comercial</td><td>Roteiros de conteúdo, propostas, follow-up, CRM</td><td>Claude</td><td>Grava, faz diagnóstico, vende</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="grid-2" style="gap:36px;align-items:start">
+      <div class="stack">
+        <h3>A semana do Leonardo</h3>
+        <div class="bars" role="img" aria-label="Horas por semana: aprovar e revisar 14, projetos 7, reuniões com clientes 6, vendas 6, conteúdo 4, gestão e estudo 3">
+          <div class="bar-row"><span class="lab">Aprovar a fila e revisar</span><span class="bar-track"><span class="bar" style="--v:100"></span></span><span class="val">14 h</span></div>
+          <div class="bar-row"><span class="lab">Projetos de caixa</span><span class="bar-track"><span class="bar" style="--v:50"></span></span><span class="val">7 h</span></div>
+          <div class="bar-row"><span class="lab">Reuniões com clientes</span><span class="bar-track"><span class="bar" style="--v:42.9"></span></span><span class="val">6 h</span></div>
+          <div class="bar-row"><span class="lab">Vendas e diagnósticos</span><span class="bar-track"><span class="bar" style="--v:42.9"></span></span><span class="val">6 h</span></div>
+          <div class="bar-row"><span class="lab">Conteúdo e palestras</span><span class="bar-track"><span class="bar" style="--v:28.6"></span></span><span class="val">4 h</span></div>
+          <div class="bar-row"><span class="lab">Gestão e estudo</span><span class="bar-track"><span class="bar" style="--v:21.4"></span></span><span class="val">3 h</span></div>
+        </div>
+        <p class="tiny">Semana de 40 h com 5 clientes de assinatura e 1 projeto em andamento. Sem IA, a mesma carteira pediria mais de 60 h.<span class="seal e"></span></p>
+      </div>
+      <div class="stack">
+        <h3>As seis regras de ouro</h3>
+        <ol class="small" style="margin:0;padding-left:1.3em;display:grid;gap:7px">
+          <li>Nada jurídico sai sem a aprovação do Leonardo, com registro de quem aprovou.</li>
+          <li>A IA se identifica como IA, e o cliente sempre pode falar com o advogado.</li>
+          <li>Consentimento escrito do cliente para uso de IA, no contrato de honorários.</li>
+          <li>Dados isolados por cliente, e nome, CPF e dados sensíveis tirados antes do prompt.</li>
+          <li>Só planos comerciais com retenção zero ou de 30 dias.</li>
+          <li>Toda citação de lei ou decisão é aberta na fonte. No Brasil já há 41 decisões com conteúdo inventado por IA.</li>
+        </ol>
+        <p class="tiny">Base: Recomendação CFOAB 001/2024 sobre IA na advocacia; base Charlotin de alucinações.<span class="seal f"></span></p>
+      </div>
+    </div>
+
+    <div class="grid-2" style="gap:36px;align-items:start">
+      <div class="stack">
+        <h3>A stack e quanto custa</h3>
+        <div class="tbl-wrap"><table class="t">
+          <thead><tr><th>Função</th><th>Escolha</th><th class="n">R$/mês</th></tr></thead>
+          <tbody>
+            <tr><td>IA generalista</td><td>Claude Team, 2 assentos</td><td class="n">270</td></tr>
+            <tr><td>IA jurídica com jurisprudência</td><td>Jus IA</td><td class="n">109</td></tr>
+            <tr><td>Banco, portal, CRM, memória</td><td>Supabase Pro</td><td class="n">135</td></tr>
+            <tr><td>Assinatura eletrônica</td><td>ZapSign</td><td class="n">80</td></tr>
+            <tr><td>WhatsApp oficial</td><td>API da Meta</td><td class="n">50</td></tr>
+            <tr><td>E-mail, agenda, drive</td><td>Google Workspace</td><td class="n">35</td></tr>
+            <tr><td>Site e domínio</td><td>—</td><td class="n">30</td></tr>
+            <tr><td>Processos</td><td>Escavador</td><td class="n">30</td></tr>
+            <tr class="total"><td>Fixo</td><td></td><td class="n">≈ 740</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div class="stack">
+        <h3>Comprar primeiro, construir depois</h3>
+        <ul class="ticks small">
+          <li><strong>Meses 1 a 3:</strong> tudo comprado pronto. O Leonardo trabalha com Claude, Jus IA, ZapSign e uma planilha de demandas, e registra as horas de cada tarefa.</li>
+          <li><strong>A partir do mês 3:</strong> o João constrói o agente de WhatsApp com fila de aprovação, a memória por cliente, o portal e o relatório automático. Ele já tem da Altta o inbox de WhatsApp e o agente no Supabase, o que corta o projeto para 4 a 8 semanas.<span class="seal e"></span></li>
+          <li><strong>O erro a evitar:</strong> passar meses construindo plataforma antes de ter clientes pagando.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= §6 NICHOS ================= -->
+<section id="nichos">
+  <header class="sec-head">
+    <span class="sec-num">§ 6</span>
+    <h2>Onde vender</h2>
+    <p class="lede">O negócio é para qualquer empresa. Mas um advogado sozinho não acha clientes “em geral”: acha comunidades. Então o marketing escolhe dois focos, e a porta continua aberta para o resto. A pergunta certa é em que momento a empresa está, e não de que setor ela é.</p>
+  </header>
+  <div class="stack-lg">
+    <div class="stack">
+      <h3>O que vender em cada momento da empresa</h3>
+      <div class="tbl-wrap"><table class="t">
+        <thead><tr><th>Momento</th><th>Tamanho</th><th>O que comprar</th><th>Onde achar</th></tr></thead>
+        <tbody>
+          <tr><td class="strong">Crescer: filial, franquia, contrato grande</td><td>70.032 empresas de alto crescimento (2022)<span class="seal f"></span></td><td><span class="inum k">1</span><span class="inum">2</span> Jurídico Externo, Mesa de Contratos</td><td>vagas abertas, novas unidades, ABF</td></tr>
+          <tr><td class="strong">Primeiras contratações</td><td>337.330 viraram empregadoras (2021)<span class="seal f"></span></td><td><span class="inum">8</span><span class="inum k">1</span> Prevenção trabalhista, Jurídico Externo</td><td>o contador sabe primeiro</td></tr>
+          <tr><td class="strong">Regra nova: reforma, NR-1</td><td>todo empregador; 60% das PMEs sem preparo<span class="seal f"></span></td><td><span class="inum k">5</span><span class="inum">8</span> Reforma tributária, Prevenção trabalhista</td><td>conteúdo, palestra, contador</td></tr>
+          <tr><td class="strong">Dívida com o fisco</td><td>3,69 mi de transações em 2020–25<span class="seal f"></span></td><td><span class="inum">6</span> Transação tributária</td><td>contador, associações</td></tr>
+          <tr><td class="strong">Sócio entrando ou saindo</td><td>sem série pública<span class="seal l"></span></td><td><span class="inum k">3</span> Sócios em Ordem</td><td>contador, rede</td></tr>
+          <tr><td class="strong">Captar investimento</td><td>459 rodadas de VC em 2025<span class="seal f"></span></td><td><span class="inum k">3</span><span class="inum k">1</span> Sócios, Jurídico Externo</td><td>comunidades de startups, aceleradoras</td></tr>
+          <tr><td class="strong">Sucessão do dono</td><td>só 24% têm plano robusto<span class="seal f"></span></td><td><span class="inum">4</span> Holding e sucessão</td><td>contador, assessor de investimentos</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="stack">
+      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline">
+        <h3>Os setores, comparados</h3>
+        <div class="chips" id="nfilter" role="group" aria-label="Filtrar setores por ideia">
+          <button class="chip" type="button" aria-pressed="true" data-i="0">Todos</button>
+          <button class="chip" type="button" aria-pressed="false" data-i="1">1 · Jurídico Externo</button>
+          <button class="chip" type="button" aria-pressed="false" data-i="5">5 · Reforma</button>
+          <button class="chip" type="button" aria-pressed="false" data-i="8">8 · Trabalhista</button>
+          <button class="chip" type="button" aria-pressed="false" data-i="4">4 · Holding</button>
+          <button class="chip" type="button" aria-pressed="false" data-i="7">7 · Cobrança</button>
+        </div>
+      </div>
+      <div class="tbl-wrap"><table class="t" id="ntable">
+        <thead><tr><th>Setor</th><th class="n">Empresas</th><th style="min-width:150px">Nota</th><th>O que compra</th><th>Ideias</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+      <p class="tiny">Contagens do IBGE (CEMPRE 2024) e de entidades setoriais. Nota com pesos: dor recorrente 25%, capacidade de pagar o piso 25%, acesso para um advogado só 20%, encaixe com IA 15%, concorrência 15% (invertida). Arquivo 09.<span class="seal f"></span></p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card stack" style="gap:8px;border-color:var(--ruby)"><span class="eyebrow">Foco 1 · ano 1</span><h3>Tecnologia e serviços digitais</h3><p class="small muted">Software houses, agências e consultorias de 10 a 100 pessoas. Um kit jurídico só serve para todas: contrato com cliente, prestador PJ, propriedade intelectual, sócios. E muitas estão no Simples vendendo para empresas, ou seja, precisam decidir o regime da reforma. ~19 mil empresas no alvo.<span class="seal f"></span></p></div>
+      <div class="card stack" style="gap:8px;border-color:var(--ruby)"><span class="eyebrow">Foco 2 · ano 1</span><h3>Redes em expansão</h3><p class="small muted">Franqueadoras e empresas com várias unidades: um contrato se replica em todas, e o trabalho cresce junto com a rede. 3.297 redes, R$ 301,7 bilhões faturados em 2025, e 18% das unidades abertas no ano. A ABF concentra o mercado.<span class="seal f"></span></p></div>
+      <div class="card stack" style="gap:8px"><span class="eyebrow">Teste de canal</span><h3>Saúde com 10+ pessoas, via Altta</h3><p class="small muted">Grupos, redes e clínicas maiores que a Altta conhece. É um teste de canal, não o mercado: a base média da Altta não paga o piso de R$ 5 mil. Teto de 15% a 20% do pipeline.<span class="seal e"></span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= §7 CLIENTES ================= -->
+<section id="clientes">
+  <header class="sec-head">
+    <span class="sec-num">§ 7</span>
+    <h2>De onde vêm os clientes</h2>
+    <p class="lede">No primeiro ano, os canais que mais fecham são de relacionamento e custam tempo, não verba. Os digitais trazem pouco contrato direto, mas evitam perder quem foi indicado: metade dos indicados pesquisa o nome antes de ligar e desiste.</p>
+  </header>
+  <div class="stack-lg">
+    <div class="tbl-wrap"><table class="t">
+      <thead><tr><th>Canal</th><th>Como funciona dentro da regra</th><th>O que não pode</th><th class="n">Contratos no ano 1</th><th class="n">Nota</th></tr></thead>
+      <tbody>
+        <tr><td class="strong">Contadores</td><td>Indicação caso a caso, sem dinheiro. Palestra para os clientes da contabilidade. A própria contabilidade como cliente</td><td>Comissão, proposta conjunta, divulgação conjunta</td><td class="n">6</td><td class="n">9</td></tr>
+        <tr><td class="strong">Outros advogados</td><td>Advogados de família, trabalhista ou criminal mandam a demanda empresarial, com honorário por indicação (lícito entre advogados)</td><td>—</td><td class="n">3</td><td class="n">8</td></tr>
+        <tr><td class="strong">Palestras e aulas</td><td>Associação comercial, CDL, Sebrae, sindicatos, aceleradoras. Fim educacional</td><td>Oferta de serviço na palestra</td><td class="n">2</td><td class="n">8</td></tr>
+        <tr><td class="strong">Indicação de clientes</td><td>Cliente satisfeito indica, de forma espontânea</td><td>Desconto ou prêmio por indicação</td><td class="n">3</td><td class="n">8</td></tr>
+        <tr><td class="strong">LinkedIn e newsletter</td><td>Conteúdo técnico; newsletter só com inscrição voluntária</td><td>Casos, resultados, preço</td><td class="n">1</td><td class="n">7</td></tr>
+        <tr><td class="strong">Altta</td><td>A Altta como cliente; Leonardo como palestrante sem oferta; indicação espontânea</td><td>Comissão, desconto, co-branding, disparo para a base</td><td class="n">2</td><td class="n">6</td></tr>
+        <tr><td class="strong">Google (busca e perfil)</td><td>Anúncio que responde a uma busca, sem oferta; perfil no Google</td><td>Pre-roll, ranking pago</td><td class="n">1</td><td class="n">5</td></tr>
+        <tr><td class="strong">Prospecção ativa</td><td>Só para recrutar parceiros (contadores, advogados)</td><td>Mala direta; mensagem oferecendo serviço</td><td class="n">0</td><td class="n">3</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="grid-2" style="gap:36px;align-items:start">
+      <div class="stack">
+        <h3>O funil do primeiro ano</h3>
+        <div class="bars" role="img" aria-label="Contratos iniciais por canal no ano 1: contadores 6, advogados 3, clientes 3, palestras 2, Altta 2, busca 1, conteúdo 1">
+          <div class="bar-row"><span class="lab">Contadores</span><span class="bar-track"><span class="bar" style="--v:100"></span></span><span class="val">6</span></div>
+          <div class="bar-row"><span class="lab">Outros advogados</span><span class="bar-track"><span class="bar" style="--v:50"></span></span><span class="val">3</span></div>
+          <div class="bar-row"><span class="lab">Indicação de clientes</span><span class="bar-track"><span class="bar" style="--v:50"></span></span><span class="val">3</span></div>
+          <div class="bar-row"><span class="lab">Palestras</span><span class="bar-track"><span class="bar" style="--v:33.3"></span></span><span class="val">2</span></div>
+          <div class="bar-row"><span class="lab">Altta</span><span class="bar-track"><span class="bar" style="--v:33.3"></span></span><span class="val">2</span></div>
+          <div class="bar-row"><span class="lab">Busca no Google</span><span class="bar-track"><span class="bar" style="--v:16.7"></span></span><span class="val">1</span></div>
+          <div class="bar-row"><span class="lab">Conteúdo</span><span class="bar-track"><span class="bar" style="--v:16.7"></span></span><span class="val">1</span></div>
+        </div>
+        <p class="small muted">~110 leads → ~60 reuniões → ~20 contratos iniciais (17 projetos e 3 assinaturas diretas). Se 1 em cada 4 projetos virar assinatura, o mês 12 tem ~7 clientes recorrentes, contando o tributário contínuo.<span class="seal e" title="Arquivo 11"></span></p>
+      </div>
+      <div class="stack">
+        <h3>Os 10 primeiros clientes</h3>
+        <ol class="small" style="margin:0;padding-left:1.3em;display:grid;gap:8px">
+          <li><strong>Lista de 100 empresários conhecidos</strong>: família, amigos, clientes da Altta que já conhecem o Leonardo, fornecedores. Conversa, não oferta. Meta: 3 clientes.</li>
+          <li><strong>10 contadores visitados</strong> no primeiro mês. O assunto é o 30/10 e a transação: eles têm os clientes e não fazem contrato. Meta: 3 clientes.</li>
+          <li><strong>2 advogados parceiros</strong> de outras áreas que recebem demanda empresarial. Meta: 1 cliente.</li>
+          <li><strong>1 palestra por mês</strong> sobre a reforma e as obrigações de 2027. Meta: 1 cliente.</li>
+          <li><strong>A Altta como primeira cliente</strong> do escritório, e o Leonardo dando uma aula nos eventos dela. Meta: 1 ou 2 clientes.</li>
+        </ol>
+        <div class="leitura"><b>Regra que não muda</b><p>Ninguém que não seja advogado recebe nada por indicar (Estatuto, art. 34, III). Proposta conjunta com contador é “totalmente vedada” (OAB-GO, Proc. 202444666). Preço, gratuidade e resultados nunca vão em anúncio (Provimento 205).<span class="seal f"></span></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= §8 SIMULADOR ================= -->
+<section id="simulador">
+  <header class="sec-head">
+    <span class="sec-num">§ 8</span>
+    <h2>Monte o negócio</h2>
+    <p class="lede">Escolha um caminho ou mude os números. O simulador calcula o Simples (Anexo IV), confere o piso da OAB e mostra se cabe na hora do Leonardo.</p>
+  </header>
+  <div class="sim">
+    <div class="sim-in">
+      <div class="presets">
+        <div class="chips" role="group" aria-label="Negócio recomendado">
+          <button class="chip" type="button" data-preset="r10">Recomendado · R$ 10 mil</button>
+          <button class="chip" type="button" data-preset="r20" aria-pressed="true">Recomendado · R$ 20 mil</button>
+          <button class="chip" type="button" data-preset="r30">Recomendado · R$ 30 mil</button>
+        </div>
+        <div class="chips" role="group" aria-label="Caminhos alternativos">
+          <button class="chip" type="button" data-preset="trib">Tributário</button>
+          <button class="chip" type="button" data-preset="patr">Patrimonial</button>
+          <button class="chip" type="button" data-preset="trab">Trabalhista</button>
+          <button class="chip" type="button" data-preset="cobr">Cobrança com IA</button>
+        </div>
+      </div>
+      <div class="sim-group">
+        <h4>Assinaturas <small>escritório</small></h4>
+        <div class="frow h"><span class="nm">Plano</span><span>Clientes</span><span>Preço</span><span>Horas/mês</span></div>
+        <div class="frow"><span class="nm">Essencial</span><div class="fld"><input class="in" type="number" min="0" id="aN" aria-label="Clientes no plano Essencial"></div><div class="fld"><input class="in" type="number" min="0" step="100" id="aP" aria-label="Preço do plano Essencial"></div><div class="fld"><input class="in" type="number" min="0" step="0.5" id="aH" aria-label="Horas por cliente no Essencial"></div></div>
+        <div class="frow"><span class="nm">Crescimento</span><div class="fld"><input class="in" type="number" min="0" id="bN" aria-label="Clientes no plano Crescimento"></div><div class="fld"><input class="in" type="number" min="0" step="100" id="bP" aria-label="Preço do plano Crescimento"></div><div class="fld"><input class="in" type="number" min="0" step="0.5" id="bH" aria-label="Horas por cliente no Crescimento"></div></div>
+        <div class="frow"><span class="nm">Completo</span><div class="fld"><input class="in" type="number" min="0" id="cN" aria-label="Clientes no plano Completo"></div><div class="fld"><input class="in" type="number" min="0" step="100" id="cP" aria-label="Preço do plano Completo"></div><div class="fld"><input class="in" type="number" min="0" step="0.5" id="cH" aria-label="Horas por cliente no Completo"></div></div>
+        <div class="frow"><span class="nm">Tributário contínuo<small>ME/EPP</small></span><div class="fld"><input class="in" type="number" min="0" id="tN" aria-label="Clientes de tributário contínuo"></div><div class="fld"><input class="in" type="number" min="0" step="100" id="tP" aria-label="Preço do tributário contínuo"></div><div class="fld"><input class="in" type="number" min="0" step="0.5" id="tH" aria-label="Horas por cliente no tributário contínuo"></div></div>
+        <div class="fld" style="max-width:360px"><label for="piso">Piso da seccional para assessoria mensal</label>
+          <select class="in" id="piso">
+            <option value="5000">RJ · tabela nova · R$ 5.000</option>
+            <option value="4122">RJ · tabela antiga · R$ 4.122</option>
+            <option value="3081">SP · R$ 3.081</option>
+            <option value="3027">PE · R$ 3.027</option>
+            <option value="2921">PR · R$ 2.921</option>
+            <option value="5720">DF · R$ 5.720</option>
+          </select></div>
+      </div>
+      <div class="sim-group">
+        <h4>Projetos e êxito <small>escritório</small></h4>
+        <div class="frow h"><span class="nm">Tipo</span><span>Qtd/mês</span><span>Preço</span><span>Horas cada</span></div>
+        <div class="frow"><span class="nm">Projetos fechados<small>reforma, sócios, transação</small></span><div class="fld"><input class="in" type="number" min="0" step="0.5" id="pN" aria-label="Projetos por mês"></div><div class="fld"><input class="in" type="number" min="0" step="500" id="pP" aria-label="Preço médio do projeto"></div><div class="fld"><input class="in" type="number" min="0" step="1" id="pH" aria-label="Horas por projeto"></div></div>
+        <div class="frow"><span class="nm">Holding e sucessão</span><div class="fld"><input class="in" type="number" min="0" step="0.1" id="hN" aria-label="Holdings por mês"></div><div class="fld"><input class="in" type="number" min="0" step="1000" id="hP" aria-label="Preço da holding"></div><div class="fld"><input class="in" type="number" min="0" step="1" id="hH" aria-label="Horas por holding"></div></div>
+        <div class="frow"><span class="nm">Êxito<small>transação, cobrança, recuperação</small></span><div class="fld"><span class="tiny">R$/mês →</span></div><div class="fld"><input class="in" type="number" min="0" step="500" id="xR" aria-label="Receita de êxito por mês"></div><div class="fld"><input class="in" type="number" min="0" step="1" id="xH" aria-label="Horas de êxito por mês"></div></div>
+      </div>
+      <div class="sim-group">
+        <h4>Ltda <small>treinamentos e produtos digitais · não consome hora</small></h4>
+        <div class="frow h"><span class="nm"></span><span></span><span>Receita/mês</span><span>% do Leonardo</span></div>
+        <div class="frow"><span class="nm">Receita da Ltda</span><span></span><div class="fld"><input class="in" type="number" min="0" step="500" id="lR" aria-label="Receita mensal da Ltda"></div><div class="fld"><input class="in" type="number" min="0" max="100" step="5" id="lS" aria-label="Participação do Leonardo na Ltda"></div></div>
+      </div>
+      <div class="sim-group">
+        <h4>Capacidade útil do Leonardo <small id="capLbl"></small></h4>
+        <input type="range" min="40" max="100" step="1" id="cap" aria-label="Capacidade útil em horas por mês">
+        <div class="tiny" style="display:flex;justify-content:space-between"><span>40 h · conservador</span><span>64 h · base</span><span>100 h</span></div>
+      </div>
+    </div>
+    <div class="sim-out" aria-live="polite">
+      <div class="stack" style="gap:6px">
+        <span class="eyebrow">Receita do escritório por mês</span>
+        <div class="big" id="oRev">—</div>
+        <span class="small muted" id="oRec">—</span>
+      </div>
+      <div class="stack" style="gap:8px">
+        <div class="stackbar" id="oBar" aria-hidden="true"></div>
+        <div class="key" style="font-size:12.5px"><span><i style="background:var(--s1);border-radius:2px"></i>Recorrente</span><span><i style="background:var(--s2);border-radius:2px"></i>Projetos e êxito</span><span><i style="background:var(--s3);border-radius:2px"></i>Parte na Ltda</span></div>
+      </div>
+      <div class="stack" style="gap:6px">
+        <div style="display:flex;justify-content:space-between;font-size:14px"><span>Horas usadas</span><b id="oHrs" class="tab">—</b></div>
+        <div class="meter" id="oMeter"><i style="width:0"></i></div>
+      </div>
+      <div>
+        <div class="out-row"><span>Clientes recorrentes</span><b id="oCli">—</b></div>
+        <div class="out-row"><span>Simples Nacional (Anexo IV)</span><b id="oDas">—</b></div>
+        <div class="out-row"><span>Custos (software, contador, OAB, seguro, CPP, marketing, pró-labore)</span><b id="oFix">—</b></div>
+        <div class="out-row"><span>Lucro do escritório</span><b id="oLuc">—</b></div>
+        <div class="out-row"><span>Parte do Leonardo na Ltda (bruta)</span><b id="oLtda">—</b></div>
+        <div class="out-row k"><span>Renda total do Leonardo</span><b id="oRenda">—</b></div>
+      </div>
+      <div class="alerts" id="oAlerts"></div>
+    </div>
+  </div>
+  <p class="tiny" style="margin-top:16px">Premissas fixas: pró-labore de R$ 2.000 com CPP de 20% fora do DAS; software R$ 740 (R$ 900 a partir de R$ 30 mil); contador, OAB, certificado, seguro e internet R$ 835; marketing R$ 1.500; ~R$ 22 por cliente recorrente. Projetos e holdings entram como média mensal. A parte na Ltda é bruta, antes dos custos dela.<span class="seal e"></span></p>
+</section>
+
+<!-- ================= §9 PLANO ================= -->
+<section id="plano">
+  <header class="sec-head">
+    <span class="sec-num">§ 9</span>
+    <h2>Os primeiros 90 dias</h2>
+    <p class="lede">Começa na segunda-feira, 6 de outubro. Os prazos de 30/10 e 31/12 ditam o ritmo do trimestre.</p>
+  </header>
+  <div class="stack-lg">
+    <div class="phases">
+      <div class="phase"><div class="when"><span>Semana 1 · 6 a 10/out</span><b>Decidir e abrir</b></div><ul class="ticks small"><li>Leonardo e João escolhem o caminho (§ 3) e as decisões abaixo.</li><li>Pedir a abertura da sociedade individual de advocacia no Simples, Anexo IV, e contratar o contador. Até o CNPJ sair, o Leonardo pode emitir como advogado pessoa física, com imposto maior.<span class="seal e"></span></li><li>Contrato de honorários modelo: escopo, créditos, cláusula de IA, aviso prévio, reajuste.</li><li>Assinar a stack pronta: Claude, Jus IA, ZapSign, Asaas.</li></ul></div>
+      <div class="phase"><div class="when"><span>Semana 2 · 13 a 17/out</span><b>Montar os produtos</b></div><ul class="ticks small"><li>Roteiros de trabalho dos 3 produtos de janela: decisão de regime e diagnóstico da reforma, transação tributária, holding express.</li><li>Checklist do diagnóstico de 40 pontos e a biblioteca inicial de modelos.</li><li>Lista dos 100 empresários e dos 10 contadores. Site institucional de uma página, sem preço.</li></ul></div>
+      <div class="phase"><div class="when"><span>Semanas 3 e 4 · até 31/out</span><b>Corrida do 30/10</b></div><ul class="ticks small"><li>Conversas com a rede e visitas aos contadores. Meta: 3 a 5 contratos de regime ou de transação.</li><li>Primeiro conteúdo no LinkedIn: o que a empresa do Simples precisa decidir até 30/10.</li><li>A Altta como primeira cliente, se fizer sentido para ela.</li></ul></div>
+      <div class="phase"><div class="when"><span>Novembro</span><b>Holding e PGFN</b></div><ul class="ticks small"><li>2 a 3 holdings express, no máximo, para não travar a agenda. Transação no edital PGFN até 29/01.</li><li>Primeira palestra numa associação comercial, CDL ou no Sebrae.</li><li>Converter o primeiro projeto em assinatura Jurídico Externo.</li></ul></div>
+      <div class="phase"><div class="when"><span>Dezembro e início de janeiro</span><b>Fechar e preparar 2027</b></div><ul class="ticks small"><li>Concluir as doações de quotas antes de 31/12.</li><li>Preparar o produto de prevenção trabalhista e NR-1 para janeiro a março, quando a multa pode voltar.</li><li>O João começa o MVP: agente de WhatsApp com fila de aprovação, memória por cliente, portal e relatório.</li><li>Revisar as horas reais por tarefa e ajustar créditos e preços.</li></ul></div>
+    </div>
+
+    <div class="grid-2" style="gap:24px">
+      <div class="card stack" style="gap:8px"><span class="eyebrow">Meta conservadora em 90 dias</span><div class="big">R$ 25 mil</div><p class="small muted">em projetos fechados no trimestre, 1 assinatura ativa e 10 contadores conhecidos.<span class="seal e"></span></p></div>
+      <div class="card stack" style="gap:8px;border-color:var(--ruby)"><span class="eyebrow">Meta otimista em 90 dias</span><div class="big">R$ 60 mil</div><p class="small muted">com 2 holdings e 5 transações ou decisões de regime, 2 assinaturas e a primeira palestra feita.<span class="seal e"></span></p></div>
+    </div>
+
+    <div class="stack">
+      <h3>O que o Leonardo e o João precisam decidir</h3>
+      <div>
+        <div class="dec"><span class="dn">1</span><div><h4>Qual caminho?</h4><p>O recomendado (Jurídico Externo) ou um dos quatro alternativos. Depende do que o Leonardo já sabe e gosta de fazer.</p><p class="rec"><b>Recomendação</b>o recomendado, a menos que ele tenha experiência forte em tributário, trabalhista ou família empresária.</p></div></div>
+        <div class="dec"><span class="dn">2</span><div><h4>Qual é a seccional do Leonardo, e qual coluna da tabela vale como mínimo?</h4><p>A tabela nova da OAB-RJ tem “Sugestão” e “Média RJ/MG/SP”, e ora se chama “valores mínimos”, ora “parâmetros orientativos”.</p><p class="rec"><b>Recomendação</b>confirmar a inscrição e perguntar formalmente à OAB-RJ antes da primeira proposta. Até lá, preço igual ou acima da coluna “Sugestão”.</p></div></div>
+        <div class="dec"><span class="dn">3</span><div><h4>Vamos atrás do 30/10?</h4><p>São 27 dias. Dá para fechar poucos contratos, com a rede e com contadores. Se não der, o diagnóstico continua vendável, e a próxima janela é março.</p><p class="rec"><b>Recomendação</b>sim, com meta modesta: 3 a 5 contratos. É o jeito mais rápido de testar a venda.</p></div></div>
+        <div class="dec"><span class="dn">4</span><div><h4>Quais são os dois focos de marketing do ano 1?</h4><p>O negócio atende qualquer empresa; os focos dizem só onde o Leonardo vai procurar e sobre o que vai falar.</p><p class="rec"><b>Recomendação</b>tecnologia e serviços digitais, e redes em expansão. A Altta entra como teste de canal.</p></div></div>
+        <div class="dec"><span class="dn">5</span><div><h4>Quando abrir a Ltda, e com qual produto?</h4><p>Leonardo e João como pessoas físicas, marca própria, sem o nome Lins Alves. Ela não pode ser funil do escritório.</p><p class="rec"><b>Recomendação</b>no mês 6, com um produto só: treinamentos obrigatórios ou monitor de marcas.</p></div></div>
+        <div class="dec"><span class="dn">6</span><div><h4>Quem faz o quê?</h4><p>O Leonardo é o advogado, o vendedor e a cara do negócio. O João é a tecnologia e a Ltda. Ele não pode ser sócio do escritório nem ganhar sobre os honorários.</p><p class="rec"><b>Recomendação</b>João como sócio da Ltda e, se quiser, contratado do escritório com fixo para a operação.</p></div></div>
+      </div>
+    </div>
+
+    <div class="stack src">
+      <h3>De onde vem cada número</h3>
+      <p class="small muted">Esta página usa a pesquisa do dossiê nº 01 e mais quatro frentes feitas para ela. Os arquivos completos estão em <code>empresa/estrategia/mercado/</code>. A cota de buscas web acabou no meio do trabalho; o que não pôde ser checado ficou marcado.</p>
+      <div>
+        <details><summary>09 · Verticais e posicionamento <span>IBGE CEMPRE 2024, ABF, Sebrae</span></summary><ul>
+          <li>IBGE, SIDRA 9915, 9916 e 9949 (Demografia das Empresas) e CEMPRE 2024</li>
+          <li>ABF, franchising 2025 (via Propmark) · Sebrae, startups dez/2025</li>
+          <li>LeanLaw, faixas de fractional GC nos EUA</li>
+        </ul></details>
+        <details><summary>10 · Produtos de caixa <span>OAB-RJ, PGFN, CGSN, LC 227</span></summary><ul>
+          <li>OAB-RJ, Tabela Indicativa nova: https://www.oabrj.org.br/sites/default/files/nova_tabela_honorarios_oabrj.pdf · página: https://www.oabrj.org.br/tabela-honorarios</li>
+          <li>Fenacon, Res. CGSN 194/2026 (opção até 30/10): https://fenacon.org.br/noticias/simples-nacional-prorroga-opcao-pelo-regime-hibrido-30-outubro/</li>
+          <li>PGFN, Edital 6/2026: https://www.gov.br/pgfn/pt-br/servicos/orientacoes-contribuintes/acordo-de-transacao/edital-no-6-2026 · PGFN em Números 2026</li>
+          <li>Cescon Barrieu e CNB-SP sobre a LC 227/2026 e o ITCMD</li>
+          <li>FINDES, liminar na ADPF 1316 (NR-1)</li>
+          <li>InfoMoney (Qive/Opinion Box), preparo das PMEs para a reforma</li>
+        </ul></details>
+        <details><summary>11 · Canais de aquisição <span>Provimento 205, TEDs, Clio, Hinge</span></summary><ul>
+          <li>Provimento 205/2021: https://www.oab.org.br/leisnormas/legislacao/provimentos/205-2021</li>
+          <li>OAB-GO, TED Proc. 202444666: https://www.oabgo.org.br/wp-content/uploads/2025/10/202444666.pdf</li>
+          <li>OAB-PR, Consulta 4422/2020 · TED-SP E-4.586/2015</li>
+          <li>Clio Legal Trends 2024 e 2025 (resumos) · Hinge, 523 firmas · First Page Sage · LocaliQ 2026</li>
+          <li>CFC, organizações contábeis abr/2025</li>
+        </ul></details>
+        <details><summary>12 · Software e produtos da Ltda <span>AB2L, INPI, legaltechs</span></summary><ul>
+          <li>Radar AB2L set/2026: https://ab2l.org.br/wp-content/uploads/2026/09/radar-associados-lawtechs-e-legaltechs-2026-setembro.webp</li>
+          <li>INPI, revista de marcas (RPI) em XML; oHub, preços de registro e monitoramento</li>
+          <li>Portal Tela (netLex), Baguete (Doc9, Jusbrasil), LawNext (Lawpath)</li>
+        </ul></details>
+        <details><summary>01 a 08 · Dossiê nº 01 <span>mercado, preços, players, OAB, EUA, operação</span></summary><ul>
+          <li>Pesquisa de mercado completa: https://claude.ai/artifact/BXnpfUzLCQuKYJ2CuPGXC5</li>
+          <li>Recomendação CFOAB 001/2024 (IA) · Estatuto da Advocacia · Código de Ética · LC 123/2006</li>
+          <li>SuperLegal, preços · Crosby, General Legal, Garfield.law · Clio Legal Trends</li>
+        </ul></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <span>Dossiê Lins Alves · nº 02 · 03 de outubro de 2026</span>
+  <span>Plano de negócio, não parecer jurídico. Preços e regras da OAB pedem confirmação na seccional.</span>
+</footer>
+
+</main>
+</div>
+
+<script>
+(function(){
+  const $ = (s, el=document) => el.querySelector(s);
+  const $$ = (s, el=document) => Array.from(el.querySelectorAll(s));
+  const brl = n => 'R$ ' + Math.round(n).toLocaleString('pt-BR');
+
+  /* tema */
+  const root = document.documentElement;
+  const tb = $('#themeBtn');
+  const sysDark = () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const curTheme = () => root.getAttribute('data-theme') || (sysDark() ? 'dark' : 'light');
+  const paintBtn = () => { tb.textContent = curTheme() === 'dark' ? 'Tema claro' : 'Tema escuro'; };
+  try { const t = localStorage.getItem('la-theme'); if (t) root.setAttribute('data-theme', t); } catch(e){}
+  paintBtn();
+  tb.addEventListener('click', () => {
+    const next = curTheme() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('la-theme', next); } catch(e){}
+    paintBtn();
+  });
+
+  /* sumário ativo */
+  const links = $$('#toc a, #mnav a');
+  if ('IntersectionObserver' in window){
+    const io = new IntersectionObserver(es => {
+      es.forEach(e => {
+        if (!e.isIntersecting) return;
+        links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+        const m = $('#mnav a.on'); if (m && m.scrollIntoView) m.scrollIntoView({block:'nearest', inline:'center'});
+      });
+    }, {rootMargin:'-35% 0px -60% 0px'});
+    $$('main section[id]').forEach(s => io.observe(s));
+  }
+
+  /* ---------------- as 10 ideias ---------------- */
+  // tipo: rec | caixa | escala · v: esc | ltda | ambos · x = velocidade do caixa, y = recorrência (0–10) · lab = lado do rótulo na matriz
+  const IDEAS = [
+    {id:1, nome:'Jurídico Externo por assinatura', curto:'Jurídico Externo', tipo:'rec', v:'esc', nota:8.6, core:true, x:3.5, y:9.2, lab:'r',
+     frase:'O departamento jurídico da empresa por uma mensalidade: canal direto com o advogado, créditos para contratos e consultas, prazo de resposta e relatório de valor todo mês.',
+     k:[['Ticket','R$ 5 a 9,5 mil/mês'],['Para R$ 30 mil','4 a 6 clientes'],['Primeiro dinheiro','30 a 60 dias'],['Hora do Leonardo','5 a 14 h por cliente/mês']],
+     modelo:[['Quem compra','Dono ou diretor de empresa com 10 a 200 pessoas, sem advogado interno, que hoje “chama alguém quando dá problema”. Qualquer setor.'],['Por que compra agora','Um momento concreto: o primeiro contrato grande, a 20ª contratação, um sócio entrando, uma reclamação trabalhista, uma fiscalização, uma nova unidade.'],['Como cobra','Mensalidade fixa em contrato de 12 meses, igual ou acima do piso da seccional (R$ 5.000 na tabela nova da OAB-RJ). O primeiro mês inclui a implantação. Três planos com créditos (§ 4).'],['Como cresce','Upgrade de plano quando a empresa cresce, projetos à parte (holding, reforma, compra de empresa) e reajuste anual pelo IPCA.']],
+     entregas:[['Na entrada · mês 1',['Diagnóstico de 40 pontos com mapa de riscos','Cofre jurídico com todos os documentos da empresa','5 a 8 modelos padrão: cliente, fornecedor, PJ, confidencialidade, termos do site','Playbook de contratos: o que a empresa aceita e o que não aceita','3 ganhos rápidos em 30 dias']],['Todo mês',['Canal direto com resposta em até 1 dia útil','Contratos novos e revisões, pelos créditos','Notificações e negociação com a outra parte','Calendário de vencimentos: contratos, alvarás, certidões, marcas','Boletim do que mudou na lei e afeta a empresa','Relatório de valor']],['Todo trimestre e todo ano',['Revisão do mapa de riscos com os sócios','Auditoria dos contratos vigentes','Plano jurídico do ano e renovação']],['À parte, com proposta própria',['Processo judicial, com parceiro se for volume','Holding, compra e venda de empresa, transação ou recuperação tributária']]],
+     nichos:[['Tecnologia e serviços digitais','contrato com cliente toda semana, prestadores PJ, propriedade intelectual'],['Redes em expansão','franqueadoras e multiunidade: um contrato se replica em todas'],['Indústria e distribuição','fornecedores, representantes, trabalhista pesado, a maior folha média'],['Construção e incorporação','contratos de obra, fornecedores, distratos'],['Saúde privada com 10+ pessoas','grupos, laboratórios, clínicas maiores; a base da Altta entra aqui, como canal']],
+     ia:[['Pedido','O agente no WhatsApp ou no portal se identifica como IA, entende o pedido, pede o que falta e abre a demanda com a estimativa de créditos','—'],['Contexto','Busca na memória da empresa: contrato social, modelos, playbook, histórico','—'],['Produção','Faz a primeira minuta ou a revisão com marcações e um resumo de 5 linhas','Revisa e aprova na fila: 30 a 60 min por dia para todos os clientes'],['Entrega','Envia, registra no portal, atualiza o calendário','Responde o que pede juízo e conversa com o dono'],['Rotina','Vigia vencimentos, Diário Oficial, processos e mudanças de lei por setor','Decide o que vira alerta'],['Relatório','Monta o relatório do mês','Escreve 3 linhas de análise']],
+     riscos:['Escopo que vaza (“é só uma perguntinha”): os créditos resolvem.','Cliente que não usa e cancela: ganhos rápidos e relatório de valor.','Processo pesado comendo a agenda: fica à parte, com parceiro.','Venda lenta, porque é confiança: por isso a porta de entrada é um projeto de caixa.'],
+     quando:'É o centro do negócio recomendado e entra em qualquer caminho.'},
+
+    {id:2, nome:'Mesa de Contratos 24 h', curto:'Mesa de Contratos', tipo:'rec', v:'esc', nota:7.5, core:false, x:5.0, y:8.2, lab:'r',
+     frase:'Contrato revisado ou redigido em até 24 horas, com todas as rodadas de negociação incluídas, para empresas que fecham contrato toda semana.',
+     k:[['Ticket','R$ 5 a 9 mil/mês'],['Para R$ 30 mil','4 a 6 clientes'],['Primeiro dinheiro','15 a 30 dias'],['Hora do Leonardo','~1 h por contrato']],
+     modelo:[['Quem compra','Empresas cujo comercial vive de contrato: software e SaaS, agências e consultorias, distribuidores, construtoras, eventos, locação de equipamentos.'],['Por que compra','O contrato trava a venda. O escritório tradicional devolve em uma semana; aqui volta em 24 horas.'],['Como cobra','Assessoria contratual mensal, igual ou acima do piso, com franquia (por exemplo, até 8 contratos por mês). “O preço cobre todas as rodadas até assinar”, como faz a General Legal nos EUA. Por contrato avulso, a tabela da OAB-RJ pede R$ 3.500 por revisão, o que torna o pacote mensal o formato natural.'],['Diferença da ideia 1','É mais estreita e mais rápida. Funciona sozinha ou como plano dentro do Jurídico Externo.']],
+     entregas:[['Em cada contrato',['Revisão com marcações e justificativa em português simples','Resumo de 5 linhas para o comercial: o que muda, o que é risco, o que aceitar','Até 3 rodadas de negociação com a outra parte','Versão final pronta para assinatura eletrônica']],['Todo mês',['Playbook de cláusulas atualizado com o que foi negociado','Repositório com alerta de renovação e vencimento','Relatório: contratos fechados, valor total, prazo médio']]],
+     nichos:[['Software e SaaS','contratos com clientes, SLA, licença, dados'],['Agências e consultorias','escopo, propriedade intelectual, prestadores'],['Distribuidores e representantes','exclusividade, metas, rescisão'],['Construção e engenharia','empreitada, subempreitada, garantias'],['Eventos e locação','cancelamento, responsabilidade, seguros']],
+     ia:[['Recebe','O contrato chega por e-mail, WhatsApp ou integração; a IA identifica tipo, valor e prazo','—'],['Compara','Extrai as cláusulas e compara com o playbook da empresa e com o padrão de mercado','—'],['Marca','Sugere redação alternativa com justificativa','Revisa as marcações de risco alto e aprova'],['Negocia','Prepara a resposta para cada rodada da outra parte','Decide as concessões'],['Aprende','Registra o que foi aceito para o próximo contrato','—']],
+     riscos:['Volume imprevisível: franquia mensal com pacote extra.','Contratos muito complexos (financiamento, M&A): ficam fora.','Preço por ato na tabela é alto: o pacote mensal resolve, mas vale confirmar o enquadramento com a seccional.'],
+     quando:'É a melhor vitrine da IA. No negócio recomendado, vira um benefício do plano Crescimento, não uma empresa separada.'},
+
+    {id:3, nome:'Projetos societários com preço fechado', curto:'Sócios e projetos', tipo:'caixa', v:'esc', nota:7.7, core:true, x:7.5, y:2.2, lab:'l',
+     frase:'Um cardápio de projetos com escopo, prazo e preço fechados, que resolvem um problema com data em 7 a 30 dias e abrem a porta para a assinatura.',
+     k:[['Ticket','R$ 5 a 15 mil por projeto'],['Para R$ 30 mil','3 a 4 projetos/mês'],['Primeiro dinheiro','7 a 15 dias (50% na entrada)'],['Hora do Leonardo','6 a 20 h por projeto']],
+     modelo:[['Quem compra','Qualquer empresa com um problema que tem data: sócio entrando ou saindo, investidor chegando, contrato social desatualizado, venda da empresa.'],['Como cobra','Preço fechado por projeto, 50% na assinatura e 50% na entrega, igual ou acima do item da tabela (acordo de sócios R$ 8.000 ou 10% do valor econômico; vesting R$ 6.000; constituição R$ 6.500 na OAB-RJ).'],['Como vira recorrência','O diagnóstico mostra o que falta. A meta é que 1 em cada 4 projetos vire assinatura.']],
+     entregas:[['Diagnóstico Jurídico da Empresa · R$ 5–8 mil',['40 pontos em 6 áreas','Mapa de riscos em semáforo e plano de 90 dias','Reunião de apresentação com os sócios']],['Sócios em Ordem · R$ 8–15 mil',['Revisão do contrato social','Acordo de sócios: entrada, saída, morte, divórcio, não concorrência','Tag e drag along, vesting, regra de pró-labore e lucros']],['Estrutura · R$ 6,5–15 mil',['Constituição, transformação, entrada e saída de sócio, reestruturação']],['Compra e venda de empresa · R$ 8 mil + 1–5%',['Due diligence, contrato de compra e venda, garantias, transição']]],
+     nichos:[['Empresas com 2 ou mais sócios','a maioria não tem acordo de sócios'],['Tecnologia e startups','vesting, entrada de investidor'],['Empresas familiares','segunda geração entrando'],['Redes em expansão','sócio operador em cada unidade']],
+     ia:[['Briefing','Questionário inteligente e upload; a IA extrai os dados do contrato social e das alterações','1 reunião de 45 min'],['Rascunho','Gera as minutas a partir dos modelos do Leonardo, já com os dados da empresa','—'],['Checagem','Confere coerência entre documentos: quóruns, nomes, números, cláusulas cruzadas','Revisa e ajusta a estratégia'],['Entrega','Monta o pacote, manda para assinatura, agenda o registro na Junta','Reunião de entrega']],
+     riscos:['Receita que não se repete: precisa da assinatura atrás.','Escopo que cresce: contrato fechado e aditivo.','Abaixo da tabela: conferir cada item na seccional.'],
+     quando:'É a porta de entrada permanente do negócio recomendado, o ano todo.'},
+
+    {id:4, nome:'Holding e sucessão do empresário', curto:'Holding', tipo:'caixa', v:'esc', nota:6.9, core:false, x:5.5, y:1.2, lab:'r',
+     frase:'Organizar o patrimônio e a sucessão do dono da empresa: holding, doação de quotas, acordo familiar e governança. O maior ticket por contrato.',
+     k:[['Ticket','a partir de R$ 22 mil'],['Para R$ 30 mil','1 a 2 projetos/mês'],['Primeiro dinheiro','50% em 7 dias'],['Hora do Leonardo','25 a 45 h por projeto']],
+     modelo:[['Quem compra','Empresário com patrimônio a partir de R$ 1 a 2 milhões (imóveis, participações, investimentos), em geral com mais de 45 anos e filhos.'],['Por que compra agora','A LC 227/2026 obriga o ITCMD progressivo até 8% e a base pelo valor de mercado, mas só depois que cada estado fizer a sua lei. Doar quotas pelo valor contábil só dá até 31/12/2026. Em SP, a abertura de holdings subiu 93,8% em janeiro a abril de 2026.'],['Como cobra','Projeto fechado (mínimo de R$ 22.000 na tabela nova da OAB-RJ), com entrada de 50%. Depois, uma assinatura anual de governança: assembleias, atas, contratos de locação da holding.']],
+     entregas:[['Projeto',['Diagnóstico patrimonial e sucessório, com o contador','Simulação: inventário contra holding (imposto, custas, tempo)','Desenho da estrutura, constituição e integralização dos bens','Doação de quotas com usufruto e cláusulas de proteção','Acordo de sócios familiar e protocolo de família']],['Depois (recorrente)',['Secretaria societária da holding: atas, assembleias','Contratos de locação, revisão anual, sucessão na empresa operacional']]],
+     nichos:[['Donos de empresa de qualquer setor','a sucessão é a mesma'],['Produtores rurais','terra, maquinário, cooperativa'],['Médicos e dentistas donos de clínica','imóvel e participação'],['Famílias com imóveis de aluguel','renda e sucessão']],
+     ia:[['Levantamento','Lê matrículas, declaração de IR e contratos; monta o inventário de bens','Reunião com a família'],['Simulação','Calcula inventário contra holding por estado e cenário','Valida a tese'],['Minutas','Gera contrato social, acordo e doações a partir dos modelos','Revisa e conduz as assinaturas'],['Governança','Agenda assembleias, gera atas, avisa vencimentos','Aprova']],
+     riscos:['Mercado barulhento: muita “holding” no Instagram.','Planejamento visto como abusivo pelo fisco; ITBI na integralização de imóveis.','Toma muitas horas: no máximo 2 a 3 até dezembro.','Depende de contador e de cartório.'],
+     quando:'Caminho principal se o Leonardo gosta de família empresária e patrimônio. No negócio recomendado, entra como projeto de janela até 31/12.'},
+
+    {id:5, nome:'Reforma tributária para empresas', curto:'Reforma tributária', tipo:'caixa', v:'esc', nota:8.3, core:true, x:8.5, y:5.5, lab:'l',
+     frase:'Preparar a empresa para a transição de 2027 a 2033: decisão de regime do Simples, diagnóstico de impacto e revisão dos contratos com IA, junto com o contador. Depois, acompanhamento mensal.',
+     k:[['Ticket','R$ 5 a 10 mil + R$ 1,5 mil/mês'],['Para R$ 30 mil','2 projetos/mês + 8 contínuos'],['Primeiro dinheiro','0 a 15 dias'],['Hora do Leonardo','6 a 10 h por projeto']],
+     modelo:[['Quem compra','Toda PME que vende para outras empresas. Prioridade para empresas do Simples cujos clientes estão no Lucro Real ou Presumido: elas precisam decidir se recolhem IBS/CBS por fora para o cliente não perder crédito.'],['Por que compra agora','A opção do Simples para 2027 vai até 30/10/2026 (a próxima janela é março de 2027). A CBS entra cheia em 2027 e o PIS/Cofins acaba. Contratos de longo prazo ficam desequilibrados. 60% das PMEs ainda não começaram a se preparar.'],['Como cobra','Projeto fechado (planejamento tributário: R$ 8.000 na OAB-RJ; parecer: R$ 5.000) e, depois, tributário contínuo (consultoria tributária para ME/EPP: R$ 1.000 na OAB-RJ).'],['Por que advogado, e não só contador','O contador faz a conta do imposto. Contrato, aditivo e parecer assinado são do advogado. Cada um contrata o cliente separadamente, sem comissão nem proposta conjunta.']],
+     entregas:[['Projeto',['Parecer de regime: ficar no DAS ou recolher IBS/CBS por fora, com os números do contador','Diagnóstico de impacto em preço, margem, crédito e caixa de 2027 a 2033','Auditoria dos contratos vigentes: preço, tributo, reajuste, prazo','Aditivo padrão por tipo de contrato e cartas às contrapartes','Novos modelos de contrato “pós-reforma”']],['Tributário contínuo · por mês',['Boletim da regulamentação e alertas de prazo','Revisão semestral do regime (março e setembro)','Contratos novos com cláusula tributária','Split payment, obrigatório só em 2028']]],
+     nichos:[['Serviços B2B e tecnologia no Simples','o caso clássico do regime híbrido'],['Construção e incorporação','contratos longos e regime específico'],['Locação e imobiliárias','muda tudo na tributação do aluguel'],['Indústria e distribuição','crédito em toda a cadeia'],['Saúde e educação','têm redução de alíquota']],
+     ia:[['Ingestão','Lê PGDAS, notas de venda, carteira de clientes e centenas de contratos em horas','—'],['Simulação','Simula a perda de crédito do cliente nos dois regimes','Valida as premissas com o contador'],['Classificação','Classifica cada contrato por risco e prioridade','Valida os critérios'],['Aditivos','Gera o aditivo por tipo de contrato, com os dados de cada um','Revisa os modelos e os casos críticos'],['Acompanhamento','Vigia a regulamentação e avisa cada cliente do que muda','Escreve o “o que fazer”']],
+     riscos:['Regras do Simples híbrido ainda mudam por resolução.','O reequilíbrio da LC 214 vale só para contratos com o poder público. Nos privados, vale o Código Civil e a cláusula: não vender “reequilíbrio legal”.','O contador já tem o cliente; o diferencial é o contrato.'],
+     quando:'É o melhor produto de lançamento: horizontal, com prazo, ticket fixo e a melhor ponte para a recorrência.'},
+
+    {id:6, nome:'Transação e defesa tributária', curto:'Transação tributária', tipo:'caixa', v:'esc', nota:7.9, core:false, x:9.0, y:3.2, lab:'l',
+     frase:'Negociar dívidas com a PGFN e a Receita, defender execuções fiscais e recuperar imposto pago a mais, com fixo mínimo mais um percentual do que a empresa ganha.',
+     k:[['Ticket','R$ 4–8 mil + 10–20% da economia'],['Para R$ 30 mil','4 a 6 casos/mês'],['Primeiro dinheiro','0 a 30 dias (o fixo)'],['Hora do Leonardo','4 a 10 h por caso']],
+     modelo:[['Quem compra','PME com débito inscrito em dívida ativa ou em discussão administrativa; revendedores do Simples de produtos monofásicos (farmácias, autopeças, cosméticos, bebidas) que pagaram PIS/Cofins de novo.'],['Por que compra agora','Os editais 9 e 10/2026 da Receita vencem em 30/10/2026; o edital PGFN 6/2026 vai até 29/01/2027. Desconto de até 70% para ME/EPP e prazo de até 133 meses.'],['Como cobra','Fixo cobrado na adesão (piso da OAB-RJ ~R$ 4 mil) mais 10% a 20% do desconto obtido, por contrato escrito. Só êxito pode dar zero: muita PME só consegue prazo, sem desconto.']],
+     entregas:[['Transação',['Levantamento das dívidas: Regularize, e-CAC, dívida ativa estadual e municipal','Simulação das modalidades e da capacidade de pagamento','Adesão e acompanhamento das parcelas e da certidão negativa']],['Defesa e recuperação',['Defesa em execução fiscal e auto de infração','Recuperação do PIS/Cofins monofásico no Simples (últimos 5 anos)','Radar de editais para reabrir a oferta a cada novo Refis']]],
+     nichos:[['Empresas com dívida ativa, de qualquer setor','R$ 30,8 bi recuperados pela PGFN em 2025'],['Farmácias','o caso clássico do monofásico'],['Autopeças','idem'],['Mercados e atacarejos','idem'],['Indústria e transporte','autos e execuções fiscais']],
+     ia:[['Dados','Consolida os relatórios de situação fiscal ou lê os XML das notas','—'],['Cálculo','Simula modalidades e capacidade de pagamento, calcula economia ou crédito','Escolhe a estratégia: aderir, garantir ou discutir'],['Pedido','Prepara requerimento, retificações e petições','Assina e protocola'],['Rotina','Vigia parcelas, certidões e editais novos','Avisa o cliente']],
+     riscos:['É proibido anunciar “só paga se recuperar” (Provimento 205).','Não prometer desconto: depende da classificação da PGFN.','Teses grandes de recuperação quase não geram caixa em 2026; o monofásico é a exceção.','Contador e “recuperadoras” disputam o mesmo cliente.'],
+     quando:'O caixa mais rápido do catálogo. No negócio recomendado, entra como projeto de janela até janeiro; é o centro do caminho tributário.'},
+
+    {id:7, nome:'Cobrança B2B com IA', curto:'Cobrança com IA', tipo:'rec', v:'ambos', nota:6.8, core:false, x:6.0, y:7.0, lab:'r',
+     frase:'Recuperar o dinheiro que a empresa tem a receber com uma régua de cobrança operada por IA. O advogado entra quando precisa de peso ou de processo.',
+     k:[['Ticket','10–20% do recuperado (até 30% no judicial)'],['Para R$ 30 mil','6 a 10 carteiras'],['Primeiro dinheiro','30 a 90 dias'],['Hora do Leonardo','escala com o volume']],
+     modelo:[['Quem compra','Empresas com muitos boletos e atraso recorrente: escolas e cursos, condomínios, distribuidores, indústria, assinaturas B2B, laboratórios, academias, provedores de internet. São 9,1 milhões de CNPJs inadimplentes, recorde de junho de 2026.'],['Por que compra','Resultado em dinheiro, medido toda semana, e pagamento só sobre o que entra.'],['Como cobra','Percentual do recuperado mais uma mensalidade de gestão da carteira, para cobrir o piso (cobrança amigável: R$ 900 ou 10% na OAB-RJ). É recorrente porque todo mês surgem novos atrasados.'],['Desenho','O escritório presta o serviço e assina notificações e ações. A plataforma pode ser da Ltda, licenciada ao escritório por valor fixo.']],
+     entregas:[['Régua',['Mensagens por perfil de devedor no WhatsApp, e-mail e SMS','Portal de acordo com Pix e boleto, dentro das regras de desconto do cliente','Notificação extrajudicial assinada por advogado','Protesto do título']],['Processo e relatório',['Ação de cobrança, monitória ou execução, em lote, quando não há acordo','Relatório semanal: recuperado, acordos, previsão']]],
+     nichos:[['Escolas e cursos','mensalidade atrasada todo mês'],['Condomínios e administradoras','taxa condominial'],['Distribuidores e indústria','duplicatas'],['Assinaturas e software B2B','recorrência que falha'],['Saúde: laboratórios e clínicas','parcelamentos em boleto']],
+     ia:[['Carteira','Importa, limpa cadastros e segmenta por valor, atraso e histórico','Define as regras com o cliente'],['Régua','Conversa com o devedor (identificada como assistente) e propõe acordos dentro da alçada','Decide os casos fora da alçada'],['Peso','Gera notificações e protestos em lote','Assina'],['Processo','Monta as petições com os dados de cada título','Revisa e protocola']],
+     riscos:['Cobrança abusiva é proibida quando o devedor é consumidor (CDC, art. 42).','Custo das mensagens no WhatsApp desde out/2026.','A parte judicial demora.','A Ltda não pode repassar clientes ao escritório por comissão.'],
+     quando:'O caminho mais tecnológico: faz sentido se o João quiser construir a plataforma. Lembra o Garfield.law, primeiro escritório operado por IA autorizado no Reino Unido.'},
+
+    {id:8, nome:'Prevenção trabalhista e NR-1', curto:'Prevenção trabalhista', tipo:'rec', v:'ambos', nota:6.9, core:false, x:3.8, y:6.3, lab:'r',
+     frase:'Tirar o risco trabalhista da empresa antes do processo: diagnóstico, políticas, canal de denúncia, treinamentos e a parte jurídica das novas regras de saúde mental no trabalho.',
+     k:[['Ticket','R$ 5–12 mil de implantação + R$ 5 mil/mês'],['Para R$ 30 mil','4 a 5 clientes'],['Primeiro dinheiro','30 dias'],['Hora do Leonardo','5 a 10 h por cliente/mês']],
+     modelo:[['Quem compra','Empresas com 20 a 500 empregados: varejo, indústria, logística, saúde, construção, atendimento.'],['Por que compra','A Justiça do Trabalho recebeu 2,4 milhões de ações novas em 2025, recorde. A NR-1 passou a exigir a gestão de riscos psicossociais (multas suspensas pelo STF até por volta de dezembro). A Lei 14.457/2022 exige canal de denúncia e treinamento contra assédio em empresas com CIPA. Foram 546 mil afastamentos por transtorno mental em 2025.'],['Como cobra','Implantação fechada mais consultoria trabalhista mensal (piso da OAB-RJ: R$ 5.000 abaixo de 50 empregados, R$ 8.000 acima). Os treinamentos anuais são vendidos pela Ltda, por funcionário.']],
+     entregas:[['Implantação',['Diagnóstico: contratos, PJs, jornada, banco de horas, terceirizados','Código de conduta e políticas: assédio, home office, uso de IA','Canal de denúncia','Parte jurídica do programa de riscos psicossociais, com a empresa de segurança do trabalho']],['Todo mês',['Checklist jurídico de cada demissão','Acordos extrajudiciais homologados','Resposta a fiscalizações e notificações','Apuração de denúncias']],['Todo ano · pela Ltda',['Treinamento obrigatório de assédio e saúde mental, com certificado']]],
+     nichos:[['Varejo com várias lojas','turnover e jornada'],['Indústria','insalubridade, horas extras'],['Transporte e logística','jornada de motorista'],['Saúde','plantões, PJs'],['Construção','terceirizados, segurança']],
+     ia:[['Diagnóstico','Lê contratos, folha amostral e ponto; aponta padrões de risco','Valida e prioriza'],['Políticas','Gera políticas e código de conduta a partir de modelos','Revisa'],['Denúncias','Recebe e tria denúncias com anonimização','Conduz a apuração'],['Demissões','Checklist automático de rescisão e minuta de acordo','Aprova']],
+     riscos:['A parte técnica do programa de riscos é de engenheiro e médico do trabalho: precisa de parceiro.','O contencioso trabalhista tenta entrar e é pesado: fica à parte.','A data da volta da multa da NR-1 depende do STF.'],
+     quando:'Caminho principal se o Leonardo vem do trabalhista. No negócio recomendado, entra em janeiro a março de 2027 como módulo para clientes com mais funcionários.'},
+
+    {id:9, nome:'Produtos digitais para PMEs', curto:'Produtos digitais', tipo:'escala', v:'ltda', nota:6.5, core:false, x:1.5, y:9.0, lab:'b',
+     frase:'Software com preço público e sem consultoria, vendido pela Ltda: monitor de marcas com registro no INPI e gerador de contratos com cofre de vencimentos.',
+     k:[['Ticket','R$ 29 a 149/mês por empresa'],['Para R$ 10 mil','100 a 200 assinantes'],['Primeiro dinheiro','6 a 12 meses'],['Hora do Leonardo','quase nenhuma; o João constrói']],
+     modelo:[['Quem compra','Pequenas empresas que nunca vão pagar R$ 5 mil por mês de advogado: o enorme mercado abaixo do piso da OAB.'],['Por que existe','A OAB proíbe o escritório de vender barato, mas não proíbe uma empresa de tecnologia de vender software. É a forma ética de atender a base do mercado.'],['Como cobra','Assinatura self-service com preço no site, anúncios livres e comissão para parceiros: contabilidades, sistemas de gestão (Conta Azul, Omie), agências e a Altta pelo Attlas.'],['Quanto rende','Conta conservadora: ~R$ 10 mil por mês no mês 12. A Ltda não chega à meta sozinha; é a escala que não gasta hora.']],
+     entregas:[['Monitor de marcas · primeiro produto',['Busca e pedido de registro no INPI (R$ 690 + taxa)','Vigilância semanal da revista do INPI, em XML público, a R$ 29 por mês por marca','Alerta quando alguém tenta registrar algo parecido']],['Contratos da empresa · segundo produto',['Gerador por questionário fechado, com a biblioteca revisada do Leonardo','Assinatura eletrônica e cofre com alerta de vencimento','R$ 39 por documento ou R$ 59 a 149 por mês']]],
+     nichos:[['Horizontal','qualquer pequena empresa'],['Distribuição por parceiros','contabilidades online, ERPs, agências que criam marcas, a Altta pelo Attlas']],
+     ia:[['Geração','Monta o documento a partir das respostas do questionário','Mantém os modelos, como fornecedor da Ltda'],['Leitura','Extrai datas e obrigações dos contratos enviados','—'],['Vigilância','Compara cada nova marca publicada no INPI com as marcas monitoradas','—'],['Suporte','Atende o usuário sobre o produto, nunca sobre o caso concreto','—']],
+     riscos:['Não pode dar parecer nem estimar chance de êxito: a Justiça proibiu a plataforma Justify em 2025.','O gerador de contratos é zona cinzenta: só questionário fechado e consulta ao Tribunal de Ética antes de lançar.','Botão “fale com o advogado” levando ao escritório é captação: não pode.','Legaltechs bem capitalizadas e preço baixo no mercado (R$ 20 a 40 por contrato).'],
+     quando:'A partir do mês 6, com um produto só. Começar pelo monitor de marcas, que é o mais limpo eticamente.'},
+
+    {id:10, nome:'Treinamentos e educação', curto:'Treinamentos', tipo:'escala', v:'ltda', nota:6.4, core:false, x:6.5, y:4.2, lab:'r',
+     frase:'Treinamentos obrigatórios para empresas e cursos para empresários, vendidos pela Ltda, com o Leonardo como professor.',
+     k:[['Ticket','R$ 30–80 por funcionário/ano'],['Para R$ 10 mil','empresas com 1.500+ funcionários no total'],['Primeiro dinheiro','30 a 60 dias'],['Hora do Leonardo','baixa depois de gravado']],
+     modelo:[['Quem compra','O RH de empresas obrigadas a treinar contra assédio (Lei 14.457/2022) e sobre saúde mental (NR-1); empresários que querem entender o básico jurídico.'],['Como cobra','Por funcionário por ano (B2B), por turma presencial ou por curso online. Preço público e anúncio são permitidos, porque educação não é advocacia.'],['Por que na Ltda','Ensinar não é advogar. Mas o curso não pode levar o aluno ao escritório: isso seria captação indireta.']],
+     entregas:[['Para empresas',['Treinamento anual online com certificado e relatório para a fiscalização','Turmas presenciais para lideranças']],['Para empresários e advogados',['Workshops em associações comerciais, CDL e Sebrae','Curso “o jurídico da empresa que cresce”','Depois de 12 meses, curso para advogados: “a advocacia de uma pessoa só com IA”, com o caso real']]],
+     nichos:[['Empresas com CIPA','20 ou mais empregados'],['Associações e sindicatos patronais','compram para os associados'],['Altta Academy','um canal entre outros, para gestores']],
+     ia:[['Conteúdo','Roteiros e materiais, com versões por setor','Grava e revisa'],['Avaliação','Provas e certificados automáticos','—'],['Tutor','Responde dúvidas gerais, sem caso concreto','—']],
+     riscos:['Não pode virar funil do escritório.','Conteúdo genérico concorre com curso gratuito.','A parte técnica de saúde mental pede parceiro de segurança do trabalho.'],
+     quando:'Bom par para a prevenção trabalhista e fonte de autoridade. Entra em 2027.'}
+  ];
+  const TIPO = {rec:'Recorrente', caixa:'Caixa', escala:'Escala'};
+  const VEIC = {esc:'<span class="tag r">Escritório</span>', ltda:'<span class="tag b">Ltda</span>', ambos:'<span class="tag r">Escritório</span> <span class="tag b">+ Ltda</span>'};
+  const n1 = v => v.toFixed(1).replace('.', ',');
+
+  /* matriz */
+  const svg = $('#mx'), tip = $('#mxTip'), wrap = $('#mxWrap');
+  const X0 = 60, X1 = 820, Y0 = 20, Y1 = 370;
+  const px = v => X0 + v*(X1-X0)/10, py = v => Y1 - v*(Y1-Y0)/10;
+  let mx = '';
+  mx += '<line class="mx-grid" x1="' + px(5) + '" y1="' + Y0 + '" x2="' + px(5) + '" y2="' + Y1 + '"/><line class="mx-grid" x1="' + X0 + '" y1="' + py(5) + '" x2="' + X1 + '" y2="' + py(5) + '"/>';
+  mx += '<line class="mx-axis" x1="' + X0 + '" y1="' + Y1 + '" x2="' + X1 + '" y2="' + Y1 + '"/><line class="mx-axis" x1="' + X0 + '" y1="' + Y0 + '" x2="' + X0 + '" y2="' + Y1 + '"/>';
+  mx += '<text class="mx-q" x="68" y="32">RECORRENTE · CAIXA LENTO</text><text class="mx-q" x="812" y="32" text-anchor="end">RECORRENTE · CAIXA RÁPIDO</text>';
+  mx += '<text class="mx-q" x="68" y="360">NÃO SE REPETE · CAIXA LENTO</text><text class="mx-q" x="812" y="360" text-anchor="end">NÃO SE REPETE · CAIXA RÁPIDO</text>';
+  mx += '<text class="mx-al" x="' + X0 + '" y="392">lento</text><text class="mx-al" x="' + ((X0+X1)/2) + '" y="392" text-anchor="middle">velocidade do caixa →</text><text class="mx-al" x="' + X1 + '" y="392" text-anchor="end">rápido</text>';
+  mx += '<text class="mx-al" transform="translate(40 ' + ((Y0+Y1)/2) + ') rotate(-90)" text-anchor="middle">recorrência →</text>';
+  IDEAS.forEach(d => {
+    const cx = px(d.x), cy = py(d.y), col = d.v === 'ltda' ? 'var(--s2)' : 'var(--s1)';
+    const off = d.core ? 23 : 16;
+    let lx = cx + off, ly = cy + 4, anchor = 'start';
+    if (d.lab === 'l'){ lx = cx - off; anchor = 'end'; }
+    if (d.lab === 'b'){ lx = cx; ly = cy + 29; anchor = 'middle'; }
+    mx += '<g class="mx-dot" data-id="' + d.id + '" tabindex="0" role="button" aria-label="Ideia ' + d.id + ': ' + d.nome + '">' +
+      '<circle class="hit" cx="' + cx + '" cy="' + cy + '" r="18"/>' +
+      (d.core ? '<circle class="ring" cx="' + cx + '" cy="' + cy + '" r="15.5"/>' : '') +
+      '<circle class="d" cx="' + cx + '" cy="' + cy + '" r="11" fill="' + col + '"/>' +
+      '<text class="n" x="' + cx + '" y="' + (cy + 4) + '" text-anchor="middle">' + d.id + '</text>' +
+      '<text class="l" x="' + lx + '" y="' + ly + '" text-anchor="' + anchor + '">' + d.curto + '</text></g>';
+  });
+  svg.innerHTML = mx;
+  const showTip = g => {
+    const d = IDEAS.find(i => i.id == g.dataset.id);
+    tip.innerHTML = '<b>' + d.id + ' · ' + d.nome + '</b>' + TIPO[d.tipo] + ' · ' + d.k[0][1] + '<br>Primeiro dinheiro: ' + d.k[2][1] + ' · nota ' + n1(d.nota);
+    const r = g.querySelector('circle.d').getBoundingClientRect(), w = wrap.getBoundingClientRect();
+    let left = r.left - w.left + r.width/2 + 14, top = r.top - w.top - 10;
+    tip.classList.add('on');
+    if (left + tip.offsetWidth > w.width - 8) left = r.left - w.left - tip.offsetWidth - 10;
+    tip.style.left = Math.max(8, left) + 'px'; tip.style.top = Math.max(4, top) + 'px';
+  };
+  $$('.mx-dot', svg).forEach(g => {
+    g.addEventListener('mouseenter', () => showTip(g));
+    g.addEventListener('focus', () => showTip(g));
+    g.addEventListener('mouseleave', () => tip.classList.remove('on'));
+    g.addEventListener('blur', () => tip.classList.remove('on'));
+    const go = () => { pick(+g.dataset.id); $('#ideaPanel').scrollIntoView({behavior:'smooth', block:'start'}); };
+    g.addEventListener('click', go);
+    g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); go(); } });
+  });
+
+  /* lista + ficha */
+  const list = $('#ideaList'), panel = $('#ideaPanel');
+  let cur = 1, sub = 'modelo';
+  list.innerHTML = IDEAS.map(d => '<button class="idea-btn" role="tab" type="button" id="ib' + d.id + '" data-id="' + d.id + '" data-t="' + d.tipo + '" aria-controls="ideaPanel"><span class="no">' + d.id + '</span><span class="nm">' + d.curto + '<small>' + TIPO[d.tipo] + (d.core ? ' · recomendada' : '') + '</small></span><span class="sc">' + n1(d.nota) + '</span></button>').join('');
+  const SUBS = [['modelo','Modelo'],['entregas','Produtos e entregas'],['nichos','Nichos'],['ia','Operação com IA'],['riscos','Riscos']];
+  function body(d){
+    if (sub === 'modelo') return '<dl>' + d.modelo.map(([a,b]) => '<dt>' + a + '</dt><dd>' + b + '</dd>').join('') + '</dl>';
+    if (sub === 'entregas') return '<div class="dgroups">' + d.entregas.map(([h, it]) => '<div class="dgroup"><h4>' + h + '</h4><ul>' + it.map(x => '<li>' + x + '</li>').join('') + '</ul></div>').join('') + '</div>';
+    if (sub === 'nichos') return '<div class="nl">' + d.nichos.map(([a,b]) => '<div><b>' + a + '</b><span>' + b + '</span></div>').join('') + '</div><p class="tiny">O negócio não fica preso a esses setores: são onde a ideia vende mais fácil.</p>';
+    if (sub === 'ia') return '<div class="tbl-wrap"><table class="t"><thead><tr><th>Etapa</th><th>O que a IA faz</th><th>O que o Leonardo faz</th></tr></thead><tbody>' + d.ia.map(([a,b,c]) => '<tr><td class="strong">' + a + '</td><td>' + b + '</td><td>' + c + '</td></tr>').join('') + '</tbody></table></div>';
+    return '<div class="grid-2" style="gap:24px"><div class="stack" style="gap:8px"><h4>Riscos</h4><ul class="ticks small">' + d.riscos.map(x => '<li>' + x + '</li>').join('') + '</ul></div><div class="leitura" style="align-self:start"><b>Quando escolher</b><p>' + d.quando + '</p></div></div>';
+  }
+  function render(){
+    const d = IDEAS.find(i => i.id === cur);
+    panel.setAttribute('aria-labelledby', 'ib' + d.id);
+    panel.innerHTML = '<div class="ip-top"><div class="tags"><span class="tag">Ideia ' + d.id + '</span><span class="tag">' + TIPO[d.tipo] + '</span>' + VEIC[d.v] + (d.core ? '<span class="tag r">Parte do negócio recomendado</span>' : '') + '<span class="tag">Nota ' + n1(d.nota) + '</span></div><h3>' + d.nome + '</h3><p>' + d.frase + '</p></div>' +
+      '<div class="mk">' + d.k.map(([a,b]) => '<div><span>' + a + '</span><b>' + b + '</b></div>').join('') + '</div>' +
+      '<div class="tabs" role="tablist" aria-label="Partes da ideia">' + SUBS.map(([k,l]) => '<button role="tab" type="button" data-s="' + k + '" aria-selected="' + (k === sub) + '" tabindex="' + (k === sub ? 0 : -1) + '">' + l + '</button>').join('') + '</div>' +
+      '<div class="ip-body">' + body(d) + '</div>';
+    $$('.tabs button', panel).forEach((b, i, all) => {
+      b.addEventListener('click', () => { sub = b.dataset.s; render(); $('.tabs button[aria-selected="true"]', panel).focus(); });
+      b.addEventListener('keydown', e => { if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return; const n = all[(i + (e.key === 'ArrowRight' ? 1 : all.length - 1)) % all.length]; sub = n.dataset.s; render(); $('.tabs button[aria-selected="true"]', panel).focus(); });
+    });
+    $$('.idea-btn', list).forEach(b => { const on = +b.dataset.id === cur; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; });
+    $$('.mx-dot', svg).forEach(g => g.classList.toggle('sel', +g.dataset.id === cur));
+  }
+  function pick(id){ cur = id; render(); }
+  $$('.idea-btn', list).forEach(b => {
+    b.addEventListener('click', () => pick(+b.dataset.id));
+    b.addEventListener('keydown', e => {
+      if (!['ArrowDown','ArrowUp','ArrowRight','ArrowLeft'].includes(e.key)) return;
+      e.preventDefault();
+      const vis = $$('.idea-btn', list).filter(x => !x.hidden), i = vis.indexOf(b);
+      const n = vis[(i + (e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : vis.length - 1)) % vis.length];
+      pick(+n.dataset.id); n.focus();
+    });
+  });
+  $$('#ideaFilter button').forEach(b => b.addEventListener('click', () => {
+    $$('#ideaFilter button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    const f = b.dataset.f;
+    $$('.idea-btn', list).forEach(x => { x.hidden = !(f === 'all' || x.dataset.t === f); });
+    const first = $$('.idea-btn', list).find(x => !x.hidden);
+    if (first && $('#ib' + cur).hidden) pick(+first.dataset.id);
+  }));
+  render();
+
+  /* caminhos */
+  const PATHS = [
+    {k:true, nome:'Recomendado · Jurídico Externo', who:'Para quem gosta de empresarial em geral: contratos, societário, o dia a dia da empresa.', ideias:[1,3,5,6,4], comp:'Assinatura como âncora; reforma, sócios e transação como porta; holding só até dezembro.', rec:'R$ 30 mil em 12 a 18 meses, ~70% recorrente', pros:'Horizontal, caixa e recorrência juntos, a IA aparece para o cliente.', contras:'Venda consultiva e disciplina de escopo.', preset:'r30'},
+    {nome:'Tributário', who:'Se o Leonardo gosta de tributário e de números.', ideias:[5,6,1], comp:'Reforma e transação como porta; tributário contínuo em volume para ME/EPP; assinatura para as maiores.', rec:'R$ 30 mil em 9 a 12 meses, com mais êxito', pros:'Prazos de lei vendem sozinhos; contador é o canal natural; ticket contínuo menor, então mais clientes cabem.', contras:'Risco técnico e regras mudando; disputa com contadores.', preset:'trib'},
+    {nome:'Patrimonial', who:'Se o Leonardo gosta de família empresária, sucessão e patrimônio.', ideias:[4,3,1], comp:'Holding e sucessão como carro-chefe; sócios em ordem; governança familiar como recorrência.', rec:'R$ 30 mil com poucos projetos grandes', pros:'O maior ticket por contrato; poucos clientes.', contras:'Pouca recorrência; mercado barulhento; 25 a 45 h por projeto.', preset:'patr'},
+    {nome:'Trabalhista preventivo', who:'Se o Leonardo vem do trabalhista.', ideias:[8,10,1], comp:'Prevenção e NR-1 no escritório; treinamentos obrigatórios na Ltda; assinatura trabalhista mensal.', rec:'R$ 30 mil a partir de 2027', pros:'Dor recorde e obrigações novas; a Ltda vende treinamento com preço público.', contras:'Precisa de parceiro de segurança do trabalho; o contencioso tenta entrar.', preset:'trab'},
+    {nome:'Cobrança com IA', who:'Se o objetivo é o negócio mais tecnológico, com o João construindo.', ideias:[7,9], comp:'Régua de cobrança operada por IA; o escritório assina e processa; a Ltda licencia a plataforma.', rec:'R$ 25 a 30 mil, variável', pros:'Escala além da hora do Leonardo; resultado medido em dinheiro.', contras:'Depende de plataforma pronta; receita oscila; parte judicial demora.', preset:'cobr'}
+  ];
+  $('#paths').innerHTML = PATHS.map(p => '<article class="card path' + (p.k ? ' k' : '') + '"><h3>' + p.nome + '</h3><p class="who">' + p.who + '</p><div>' + p.ideias.map(i => '<span class="inum' + (p.k ? ' k' : '') + '" title="' + IDEAS.find(d => d.id === i).nome + '">' + i + '</span>').join('') + '</div><dl><dt>Como</dt><dd>' + p.comp + '</dd><dt>Receita</dt><dd>' + p.rec + '<span class="seal e"></span></dd><dt>A favor</dt><dd>' + p.pros + '</dd><dt>Contra</dt><dd>' + p.contras + '</dd></dl><button class="chip go" type="button" data-go="' + p.preset + '">Ver no simulador</button></article>').join('');
+
+  /* setores */
+  const NICHOS = [
+    ['Franqueadoras e redes', '3.297 redes', 7.5, 'COF e contrato de franquia, expansão, marca, rede de unidades', [1,2,3,9], true],
+    ['Tecnologia, SaaS, software houses', '215.574', 7.3, 'Contratos com clientes, PI, vesting, regime da reforma', [1,2,3,5], true],
+    ['Agências e infoprodutores', '163.897', 6.8, 'Prestação de serviço, imagem, marca, regime', [2,3,5,9], false],
+    ['Serviços B2B: consultoria, engenharia', '304.520', 6.6, 'Contratos, responsabilidade, regime IBS/CBS', [1,2,5], false],
+    ['E-commerce e marcas D2C', '~1,9 mi lojas', 6.5, 'Consumidor, marca, fornecedores, LGPD', [1,3,9], false],
+    ['Saúde em geral (inclui a base Altta)', '596.479', 6.5, 'Regulatório, contratos com profissionais, trabalhista', [1,8,7], false],
+    ['Construção e incorporação', '287.717', 6.4, 'Contratos de obra, reforma tributária, trabalhista', [1,2,5,8], false],
+    ['Indústria PME', '619.384', 6.4, 'Trabalhista, contratos, transação, reforma', [1,5,6,8], false],
+    ['Escolas e cursos', '237.661', 6.3, 'Contratos com alunos, cobrança, trabalhista', [1,7,8], false],
+    ['Agro: produtores e cooperativas', '1.254 cooperativas', 6.2, 'Sucessão, contratos, tributário', [4,5], false],
+    ['Transporte e logística', '283.849', 6.0, 'Jornada, contratos, autos e execuções fiscais', [6,8], false],
+    ['Empresas familiares em sucessão', 'transversal', 6.0, 'Holding, acordo familiar, governança', [4,3], false],
+    ['Imobiliárias e condomínios', '138.972', 5.7, 'Locação, cobrança, reforma tributária', [5,7], false]
+  ];
+  const ntb = $('#ntable tbody');
+  function renderN(f){
+    ntb.innerHTML = NICHOS.filter(r => !f || r[4].includes(f)).map(r => '<tr><td class="strong">' + r[0] + (r[5] ? ' <span class="tag r">foco</span>' : '') + '</td><td class="n">' + r[1] + '</td><td><div style="display:grid;grid-template-columns:1fr 34px;gap:10px;align-items:center"><span class="bar-track" style="display:flex"><span class="bar" style="--v:' + (r[2]*10) + '"></span></span><b class="tab">' + n1(r[2]) + '</b></div></td><td>' + r[3] + '</td><td>' + r[4].map(i => '<span class="inum' + (IDEAS.find(d => d.id === i).core ? ' k' : '') + '">' + i + '</span>').join('') + '</td></tr>').join('');
+  }
+  $$('#nfilter button').forEach(b => b.addEventListener('click', () => { $$('#nfilter button').forEach(x => x.setAttribute('aria-pressed', x === b)); renderN(+b.dataset.i); }));
+  renderN(0);
+
+  /* simulador */
+  const ANEXO_IV = [[180000,.045,0],[360000,.09,8100],[720000,.102,12420],[1800000,.14,39780],[3600000,.22,183780],[4800000,.33,828000]];
+  function das(mes){ const rbt = mes*12; if (rbt <= 0) return 0; const f = ANEXO_IV.find(x => rbt <= x[0]) || ANEXO_IV[ANEXO_IV.length-1]; return mes * ((rbt*f[1] - f[2]) / rbt); }
+  console.assert(Math.round(das(10000)) === 450 && Math.round(das(20000)) === 1125 && Math.round(das(30000)) === 2025, 'DAS Anexo IV fora do esperado');
+
+  const IDS = ['aN','aP','aH','bN','bP','bH','cN','cP','cH','tN','tP','tH','pN','pP','pH','hN','hP','hH','xR','xH','lR','lS','cap','piso'];
+  const base = {aN:0,aP:5000,aH:5,bN:0,bP:7000,bH:8,cN:0,cP:9500,cH:14,tN:0,tP:1500,tH:2,pN:0,pP:7000,pH:12,hN:0,hP:25000,hH:35,xR:0,xH:0,lR:0,lS:50,cap:64};
+  const PRESETS = {
+    r10: {aN:1, tN:1, pN:0.5},
+    r20: {aN:1, bN:1, tN:1, pN:1},
+    r30: {aN:1, bN:2, tN:2, pN:1, xR:1000, xH:2},
+    trib: {bN:1, tN:8, pN:1, pP:8000, pH:10, xR:5000, xH:10},
+    patr: {aN:1, pN:1, pP:9000, hN:0.7, hH:35},
+    trab: {aN:3, cN:1, cP:8500, pN:0.5, pP:9000, pH:20, lR:6000},
+    cobr: {aN:1, xR:20000, xH:22, lR:4000}
+  };
+  const el = {}; IDS.forEach(id => el[id] = $('#' + id));
+  const val = id => Math.max(0, parseFloat(el[id].value) || 0);
+  function load(p){ const o = Object.assign({}, base, PRESETS[p]); IDS.forEach(id => { if (o[id] !== undefined) el[id].value = o[id]; }); calc(); }
+  function calc(){
+    const piso = val('piso');
+    let rec = 0, hrs = 0, cli = 0; const low = [];
+    [['Essencial','a'],['Crescimento','b'],['Completo','c']].forEach(([nm, k]) => { const n = val(k+'N'), p = val(k+'P'); rec += n*p; hrs += n*val(k+'H'); cli += n; if (n > 0 && p < piso) low.push(nm); });
+    const tn = val('tN'); rec += tn*val('tP'); hrs += tn*val('tH'); cli += tn;
+    const proj = val('pN')*val('pP') + val('hN')*val('hP') + val('xR');
+    hrs += val('pN')*val('pH') + val('hN')*val('hH') + val('xH');
+    const rev = rec + proj;
+    const ltda = val('lR')*val('lS')/100;
+    const imposto = das(rev);
+    const fix = (rev >= 30000 ? 900 : 740) + 835 + 400 + 1500 + cli*22;
+    const prolab = 2000;
+    const lucro = rev - imposto - fix - prolab;
+    const renda = (rev > 0 ? 1780 : 0) + lucro + ltda;
+    const cap = val('cap');
+    $('#capLbl').textContent = cap + ' h por mês';
+    $('#oRev').textContent = brl(rev);
+    $('#oRec').textContent = rev > 0 ? Math.round(rec/rev*100) + '% recorrente · ' + brl(rec) + ' em assinaturas' : 'Adicione clientes ou projetos';
+    const tot = rec + proj + ltda || 1;
+    $('#oBar').innerHTML = '<i style="width:' + (rec/tot*100) + '%;background:var(--s1)"></i><i style="width:' + (proj/tot*100) + '%;background:var(--s2)"></i><i style="width:' + (ltda/tot*100) + '%;background:var(--s3)"></i>';
+    const use = cap ? hrs/cap : 0;
+    $('#oHrs').textContent = (Math.round(hrs*10)/10).toString().replace('.', ',') + ' de ' + cap + ' h';
+    const m = $('#oMeter'); m.className = 'meter' + (use > 1 ? ' no' : use > .85 ? ' warn' : '');
+    m.firstElementChild.style.width = Math.min(100, use*100) + '%';
+    $('#oCli').textContent = (Math.round(cli*10)/10).toString().replace('.', ',');
+    $('#oDas').textContent = brl(imposto) + (rev > 0 ? ' · ' + (imposto/rev*100).toFixed(2).replace('.', ',') + '%' : '');
+    $('#oFix').textContent = brl(fix + prolab);
+    $('#oLuc').textContent = brl(lucro);
+    $('#oLtda').textContent = brl(ltda);
+    $('#oRenda').textContent = brl(renda);
+    const al = [];
+    if (low.length) al.push('<div class="alert no">' + low.join(', ') + ' abaixo do piso da seccional (' + brl(piso) + '). Risco de aviltamento: CED, art. 48, §6º.</div>');
+    if (tn > 0 && val('tP') < 1000 && piso === 5000) al.push('<div class="alert no">Tributário contínuo abaixo de R$ 1.000, o piso de consultoria tributária para ME/EPP na tabela nova da OAB-RJ.</div>');
+    if (use > 1) al.push('<div class="alert no">Passou da capacidade em ' + Math.round((use-1)*100) + '%. Suba o ticket, reduza horas ou tire um projeto.</div>');
+    else if (use > .85) al.push('<div class="alert warn">Perto do teto de horas. Sem folga para um cliente com problema sério.</div>');
+    if (rev > 0 && proj/rev > .6) al.push('<div class="alert warn">Mais de 60% da receita vem de projetos e êxito: todo mês começa do zero. Converta projetos em assinatura.</div>');
+    if (rev*12 > 360000) al.push('<div class="alert warn">Receita anual acima de R$ 360 mil: o Simples sobe para a faixa de 10,2% nominal.</div>');
+    if (!al.length && rev > 0) al.push('<div class="alert ok">Cabe na hora do Leonardo e respeita o piso.</div>');
+    $('#oAlerts').innerHTML = al.join('');
+  }
+  IDS.forEach(id => el[id].addEventListener('input', () => { $$('[data-preset]').forEach(x => x.setAttribute('aria-pressed', 'false')); calc(); }));
+  const setPreset = p => { $$('[data-preset]').forEach(x => x.setAttribute('aria-pressed', x.dataset.preset === p)); load(p); };
+  $$('[data-preset]').forEach(b => b.addEventListener('click', () => setPreset(b.dataset.preset)));
+  $$('[data-go]').forEach(b => b.addEventListener('click', () => { setPreset(b.dataset.go); $('#simulador').scrollIntoView({behavior:'smooth'}); }));
+  setPreset('r20');
+})();
+</script>
